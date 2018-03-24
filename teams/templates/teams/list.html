@@ -1,0 +1,58 @@
+
+<table style="width:100%; border: 1px solid #dddddd;">
+{% for obj in object_list %}
+	<tr>
+	<td>{{ obj.team }}</td>
+	<td>{{ obj.gp }}</td>
+	<td>{{ obj.two_fgm}}</td>
+	<td>{{ obj.two_fgms }}</td>
+	<td>{{ obj.two_prtg }}</td>
+	<td>{{ obj.three_fgm }}</td>
+	<td>{{ obj.three_fgms }}</td>
+	<td>{{ obj.three_prtg }}</td>
+	<td>{{ obj.ftm }}</td>
+	<td>{{ obj.ftms }}</td>
+	<td>{{ obj.ft_prtg }}</td>
+	<td>{{ obj.off_reb }}</td>
+	<td>{{ obj.def_reb }}</td>
+	<td>{{ obj.tot_reb}}</td>
+	<td>{{ obj.ast }}</td>
+	<td>{{ obj.stl }}</td>
+	<td>{{ obj.blk }}</td>
+	<td>{{ obj.to }}</td>
+	<td>{{ obj.fls }}</td>
+	<td>{{ obj.mi }}</td>
+	<td>{{ obj.pts }}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<br/>
+{{ q2 }}
+<br/>
+{{ q }}
+<br/>
+{{ q1 }}
+
+
+<br/>
+<br/>
+<table style="width:50%; border: 1px solid #dddddd;">
+{% for object in q2 %}
+
+	{% if forloop.first %}
+    <tr>
+       {% for fieldname in object.keys %}
+       <th style="border: 1px solid #dddddd;">{{ fieldname }}</th>
+       {% endfor %}
+    </tr>
+    {% endif %}
+  
+    <tr>
+      {% for value in object.values %}
+      <td style="border: 1px solid #dddddd;">{{ value }}</td>
+      {% endfor %}
+    </tr>
+
+{% endfor %}
+</table>
