@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class='container-fluid'>
+      <div class="wrapper">
+        <h1>World population over time {{ number }}</h1>
+        <p>Number of people (in millions) living on earth, the last 500 years</p>
+        <p>{{ object_list }}</p>
+      </div>
+
+
+      
+      <div class='row'>
+        
+        <div class='col-2'>
+          <div class="alert alert-primary" role="alert" style='min-height: 800px;'>
+            Sidebar
+          </div>
+        </div>
+
+
+        <div class='col-10'>
+          
+          <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
+            Graphs
+
+            <div class='row'>
+              <div class='col'>
+                <canvas id="myChart1" height="300"></canvas>
+              </div>
+              
+              <div class='col'>
+                <canvas id="myChart2" height="300"></canvas>
+              </div>
+              
+              <div class='col'>
+                <canvas id="myChart3" height="300"></canvas>
+                <!-- <canvas id="myChart3" width="400" height="400"></canvas> -->
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
+            Table
+
+            <div class='row'>
+              <div class='col-12'>
+                <table class="table table-sm table-hover table-dark">
+                  {% for object in team_classic_shooting %}
+
+                    {% if forloop.first %}
+                    <thead>
+                        <tr>
+                          <th scope="col">Team</th>
+                          <th scope="col">Games</th>
+                          
+                          <th scope="col">2FG Made</th>
+                          <th scope="col">2FG Missed</th>
+                          <th scope="col">2FG%</th>
+
+                          <th scope="col">3FG Made</th>
+                          <th scope="col">3FG Missed</th>
+                          <th scope="col">3FG%</th>
+
+                          <th scope="col">FT Made</th>
+                          <th scope="col">FT Missed</th>
+                          <th scope="col">FT%</th>
+                          
+
+                        </tr>
+                      </thead>
+                      {% endif %}
+
+                      <tbody>
+                        <tr>
+                          {% for value in object.values %}
+                          <td>{{ value }}</td>
+                          {% endfor %}
+                        </tr>
+                    </tbody>
+
+                  {% endfor %}
+                </table>
+              </div>
+              
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+      
+
+      </div>
+      
+      
+    
+    
+
+
+    </div>
+
+    
+    
+    
+    <script src="{% static 'teams/script3.js' %}"></script>
+{% endblock %}

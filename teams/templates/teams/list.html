@@ -1,58 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<table style="width:100%; border: 1px solid #dddddd;">
-{% for obj in object_list %}
-	<tr>
-	<td>{{ obj.team }}</td>
-	<td>{{ obj.gp }}</td>
-	<td>{{ obj.two_fgm}}</td>
-	<td>{{ obj.two_fgms }}</td>
-	<td>{{ obj.two_prtg }}</td>
-	<td>{{ obj.three_fgm }}</td>
-	<td>{{ obj.three_fgms }}</td>
-	<td>{{ obj.three_prtg }}</td>
-	<td>{{ obj.ftm }}</td>
-	<td>{{ obj.ftms }}</td>
-	<td>{{ obj.ft_prtg }}</td>
-	<td>{{ obj.off_reb }}</td>
-	<td>{{ obj.def_reb }}</td>
-	<td>{{ obj.tot_reb}}</td>
-	<td>{{ obj.ast }}</td>
-	<td>{{ obj.stl }}</td>
-	<td>{{ obj.blk }}</td>
-	<td>{{ obj.to }}</td>
-	<td>{{ obj.fls }}</td>
-	<td>{{ obj.mi }}</td>
-	<td>{{ obj.pts }}</td>
-	</tr>
-{% endfor %}
-</table>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<br/>
-{{ q2 }}
-<br/>
-{{ q }}
-<br/>
-{{ q1 }}
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  	<div class='container'>
+    <h1>Hello, world!</h1>
 
 
-<br/>
-<br/>
-<table style="width:50%; border: 1px solid #dddddd;">
-{% for object in q2 %}
 
-	{% if forloop.first %}
-    <tr>
-       {% for fieldname in object.keys %}
-       <th style="border: 1px solid #dddddd;">{{ fieldname }}</th>
-       {% endfor %}
-    </tr>
-    {% endif %}
-  
-    <tr>
-      {% for value in object.values %}
-      <td style="border: 1px solid #dddddd;">{{ value }}</td>
-      {% endfor %}
-    </tr>
+	<table style="width:100%; border: 1px solid #dddddd;">
+	{% for obj in object_list %}
+		<tr>
+		<td>{{ obj.team }}</td>
+		<td>{{ obj.gp }}</td>
+		<td>{{ obj.two_fgm}}</td>
+		<td>{{ obj.two_fgms }}</td>
+		<td>{{ obj.two_prtg }}</td>
+		<td>{{ obj.three_fgm }}</td>
+		<td>{{ obj.three_fgms }}</td>
+		<td>{{ obj.three_prtg }}</td>
+		<td>{{ obj.ftm }}</td>
+		<td>{{ obj.ftms }}</td>
+		<td>{{ obj.ft_prtg }}</td>
+		<td>{{ obj.off_reb }}</td>
+		<td>{{ obj.def_reb }}</td>
+		<td>{{ obj.tot_reb}}</td>
+		<td>{{ obj.ast }}</td>
+		<td>{{ obj.stl }}</td>
+		<td>{{ obj.blk }}</td>
+		<td>{{ obj.to }}</td>
+		<td>{{ obj.fls }}</td>
+		<td>{{ obj.mi }}</td>
+		<td>{{ obj.pts }}</td>
+		</tr>
+	{% endfor %}
+	</table>
 
-{% endfor %}
-</table>
+	<br/>
+	{{ q2 }}
+	<br/>
+	{{ q }}
+	<br/>
+	{{ q1 }}
+
+
+	<br/>
+	<br/>
+	<table style="width:50%; border: 1px solid #dddddd;">
+	{% for object in q2 %}
+
+		{% if forloop.first %}
+	    <tr>
+	       {% for fieldname in object.keys %}
+	       <th style="border: 1px solid #dddddd;">{{ fieldname }}</th>
+	       {% endfor %}
+	    </tr>
+	    {% endif %}
+	  
+	    <tr>
+	      {% for value in object.values %}
+	      <td style="border: 1px solid #dddddd;">{{ value }}</td>
+	      {% endfor %}
+	    </tr>
+
+	{% endfor %}
+	</table>
+
+	<br/>
+
+	<table class="table table-sm table-hover table-dark">
+	{% for object in q2 %}
+
+		{% if forloop.first %}
+		<thead>
+		    <tr>
+		      <th scope="col">Team</th>
+		      <th scope="col">Games</th>
+		      
+		      <th scope="col">2FG Made</th>
+		      <th scope="col">2FG Missed</th>
+		      <th scope="col">2FG%</th>
+
+		      <th scope="col">3FG Made</th>
+		      <th scope="col">3FG Missed</th>
+		      <th scope="col">3FG%</th>
+
+		      <th scope="col">FT Made</th>
+		      <th scope="col">FT Missed</th>
+		      <th scope="col">FT%</th>
+		      
+
+		    </tr>
+		  </thead>
+	    {% endif %}
+
+	  	<tbody>
+		    <tr>
+		      {% for value in object.values %}
+		      <td>{{ value }}</td>
+		      {% endfor %}
+		    </tr>
+		</tbody>
+
+	{% endfor %}
+	</table>
+
+	</div>    
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
