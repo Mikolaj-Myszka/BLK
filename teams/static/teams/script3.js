@@ -17,6 +17,7 @@ $(document).ready(function(){
         //console.log(typeof data)
         
 
+
         //chart1
         var ctx = document.getElementById("myChart1").getContext('2d');
 
@@ -30,6 +31,12 @@ $(document).ready(function(){
             data: {
                 labels: labels,
                 datasets: [{
+                    label: "Europe",
+                    type: "line",
+                    borderColor: "#8e5ea2",
+                    data: [20,20,20,20],
+                    fill: false
+                },{
                     label: '2FG Made',
                     data: defaultData,
                     backgroundColor: gradient,
@@ -59,6 +66,12 @@ $(document).ready(function(){
         console.log(defaultData)
 
         var ctx = document.getElementById("myChart2").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(0.5, 'grey');
+        gradient.addColorStop(1, 'green');
+        
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -66,22 +79,8 @@ $(document).ready(function(){
                 datasets: [{
                     label: '2FG Missed',
                     data: defaultData,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    backgroundColor: gradient,
+                    borderColor: gradient,
                     borderWidth: 1
                 }]
             },
@@ -104,6 +103,12 @@ $(document).ready(function(){
         console.log(defaultData)
 
         var ctx = document.getElementById("myChart3").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        gradient.addColorStop(0, 'green');
+        gradient.addColorStop(0.5, 'grey');
+        gradient.addColorStop(1, 'red');
+        
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -111,22 +116,131 @@ $(document).ready(function(){
                 datasets: [{
                     label: '2FG%',
                     data: defaultData,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    backgroundColor: gradient,
+                    borderColor: gradient,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:false
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+        //chart4
+        labels = data.teams
+        defaultData = data.three_fgm
+        console.log(labels)
+        console.log(defaultData)
+        //console.log(typeof data)
+        
+        var ctx = document.getElementById("myChart4").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        gradient.addColorStop(0, 'green');
+        gradient.addColorStop(0.5, 'grey');
+        gradient.addColorStop(1, 'red');
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Europe",
+                    type: "line",
+                    borderColor: "#8e5ea2",
+                    data: [4,4,4,4],
+                    fill: false
+                },{
+                    label: '3FG Made',
+                    data: defaultData,
+                    backgroundColor: gradient,
+                    borderColor: gradient,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:false
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+
+        //chart5
+        labels = data.teams
+        defaultData = data.three_fgms
+        console.log(labels)
+        console.log(defaultData)
+
+        var ctx = document.getElementById("myChart5").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(0.5, 'grey');
+        gradient.addColorStop(1, 'green');
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '3FG Missed',
+                    data: defaultData,
+                    backgroundColor: gradient,
+                    borderColor: gradient,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:false
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        //chart6
+        labels = data.teams
+        defaultData = data.three_prtg
+        console.log(labels)
+        console.log(defaultData)
+
+        var ctx = document.getElementById("myChart6").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        gradient.addColorStop(0, 'green');
+        gradient.addColorStop(0.5, 'grey');
+        gradient.addColorStop(1, 'red');
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '3FG%',
+                    data: defaultData,
+                    backgroundColor: gradient,
+                    borderColor: gradient,
                     borderWidth: 1
                 }]
             },

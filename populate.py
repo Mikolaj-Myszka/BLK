@@ -5,85 +5,96 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 from teams.models import TeamClassic
+from teams.models import TeamTeamRebPct
 
-i = 0
 import csv
-with open('TEAM-TEAM-CLASSIC-PERGAME.txt') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-
-        """
-        p = TeamClassic.objects.get_or_create(
-            team=row['Team']
-            )[0]
-        print(p)
-        """
-
-        i = i + 1
-        print(i, row['Team'])
-
-        ## https://amittbhardwj.wordpress.com/2015/10/15/django-queryset-update_or_create/
-        
-        # In this case, if the TeamClassic already exists, its name is updated
-        p = TeamClassic.objects.update_or_create(
-            team=row['Team'],
-            defaults={
-                'gp': row['GP'],
-                'two_fgm': row['2FGM'],
-                'two_fgms': row['2FGMS'],
-                'two_prtg': row['2P%'],
-
-                'three_fgm': row['3FGM'],
-                'three_fgms': row['3FGMS'],
-                'three_prtg': row['3P%'],
-
-                'ftm': row['FTM'],
-                'ftms': row['FTMS'],
-                'ft_prtg': row['FT%'],
-
-                'off_reb': row['OR'],
-                'def_reb': row['DR'],
-                'tot_reb': row['TR'],
-
-                'ast': row['AST'],
-                'stl': row['STL'],
-                'blk': row['BLK'],
-                'to': row['TO'],
-                'fls': row['FLS'],
-                
-                'mi': row['MIN'],
-                'pts': row['PTS'],
-                }
-            )
-        print(p)
-
-        
-        #f = TeamClassic.objects.get(team=row['Team'])
-        #print(f)
-
-        #obj = TeamClassic.objects.get(team=row['Team'])
-
-        """
-        try:
-            obj1 = TeamClassic.objects.get(team=row['Team'])
-            print(obj1)
-        except TeamClassic.DoesNotExist:
-            obj = TeamClassic(team=row['Team'])
-            #print(obj)
-            obj.save()
-        """
-        
 
 
-        """
-        if f:
-            print(f)
-        """
-        
+##### 1 switches on, 0 off
+team_team_classic_pergame = 0
+team_team_reb_pctg_pergame = 1
 
-        # was before
-        #p = TeamClassic(team=row['Team'], gp=row['GP'])
-        #p.save()
+
+###################
+i = 0
+if team_team_classic_pergame == 1:
+
+    with open('TEAM-TEAM-CLASSIC-PERGAME.txt') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            """
+            p = TeamClassic.objects.get_or_create(
+                team=row['Team']
+                )[0]
+            print(p)
+            """
+
+            i = i + 1
+            print(i, row['Team'])
+
+            ## https://amittbhardwj.wordpress.com/2015/10/15/django-queryset-update_or_create/
+            
+            # In this case, if the TeamClassic already exists, its name is updated
+            p = TeamClassic.objects.update_or_create(
+                team=row['Team'],
+                defaults={
+                    'gp': row['GP'],
+                    'two_fgm': row['2FGM'],
+                    'two_fgms': row['2FGMS'],
+                    'two_prtg': row['2P%'],
+
+                    'three_fgm': row['3FGM'],
+                    'three_fgms': row['3FGMS'],
+                    'three_prtg': row['3P%'],
+
+                    'ftm': row['FTM'],
+                    'ftms': row['FTMS'],
+                    'ft_prtg': row['FT%'],
+
+                    'off_reb': row['OR'],
+                    'def_reb': row['DR'],
+                    'tot_reb': row['TR'],
+
+                    'ast': row['AST'],
+                    'stl': row['STL'],
+                    'blk': row['BLK'],
+                    'to': row['TO'],
+                    'fls': row['FLS'],
+                    
+                    'mi': row['MIN'],
+                    'pts': row['PTS'],
+                    }
+                )
+            print(p)
+
+            
+            #f = TeamClassic.objects.get(team=row['Team'])
+            #print(f)
+
+            #obj = TeamClassic.objects.get(team=row['Team'])
+
+            """
+            try:
+                obj1 = TeamClassic.objects.get(team=row['Team'])
+                print(obj1)
+            except TeamClassic.DoesNotExist:
+                obj = TeamClassic(team=row['Team'])
+                #print(obj)
+                obj.save()
+            """
+            
+
+
+            """
+            if f:
+                print(f)
+            """
+            
+
+            # was before
+            #p = TeamClassic(team=row['Team'], gp=row['GP'])
+            #p.save()
 
 
 
@@ -103,14 +114,57 @@ person, created = Person.objects.update_or_create(
 
 
 
+###################
+if team_team_reb_pctg_pergame == 1:
+
+    with open('TEAM-TEAM-REB_PCT-PERGAME.txt') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            i = i + 1
+            print(i, row['Team'])
+
+            p = TeamTeamRebPct.objects.update_or_create(
+                team=row['Team'],
+                defaults={
+                    'gp': row['GP'],
+
+                    'ors_m': row['ORS M'],
+                    'ors_a': row['ORS A'],
+                    'ors_prtg': row['ORS%'],
+
+                    'orb_m': row['ORB M'],
+                    'orb_a': row['ORB A'],
+                    'orb_prtg': row['ORB%'],
+                    
+                    'orf_m': row['ORF M'],
+                    'orf_a': row['ORF A'],
+                    'orf_prtg': row['ORF%'],
 
 
+                    'drs_m': row['DRS M'],
+                    'drs_a': row['DRS A'],
+                    'drs_prtg': row['DRS%'],
+
+                    'drb_m': row['DRB M'],
+                    'drb_a': row['DRB A'],
+                    'drb_prtg': row['DRB%'],
+                    
+                    'drf_m': row['DRF M'],
+                    'drf_a': row['DRF A'],
+                    'drf_prtg': row['DRF%'],
 
 
+                    'ort_m': row['ORT M'],
+                    'ort_a': row['ORT A'],
+                    'ort_prtg': row['ORT%'],
 
-
-
-
+                    'drt_m': row['DRT M'],
+                    'drt_a': row['DRT A'],
+                    'drt_prtg': row['DRT%'],
+                    }
+                )
+            print(p)
 
 
 

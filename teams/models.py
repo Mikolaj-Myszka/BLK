@@ -30,9 +30,49 @@ class TeamClassic(models.Model):
 
 	pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
+	def __str__(self):
+		return "Team: " + self.team + " " + str(self.id)
+
+
+class TeamTeamRebPct(models.Model):
+	team = models.CharField(max_length=10)
+	gp = models.IntegerField()
+
+	ors_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	ors_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	ors_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	orb_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	orb_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	orb_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	orf_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	orf_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	orf_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	drs_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drs_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drs_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	drb_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drb_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drb_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	drf_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drf_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drf_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	ort_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	ort_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	ort_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	drt_m = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drt_a = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	drt_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
 	def __str__(self):
 		return "Team: " + self.team + " " + str(self.id)
+
 
 
 

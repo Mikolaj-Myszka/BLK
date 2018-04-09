@@ -26,5 +26,5 @@ urlpatterns = [
 	# url(r'^graph/', team_list_view),
 	# url(r'^api-data/', get_data),
 	# url(r'^api-rest-data/', ChartData.as_view()),
-    # url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
 ]

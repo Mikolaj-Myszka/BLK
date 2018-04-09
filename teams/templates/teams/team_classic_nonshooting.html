@@ -5,9 +5,7 @@
 {% block content %}
 <div class='container-fluid'>
       <div class="wrapper">
-        <h1>World population over time {{ number }}</h1>
-        <p>Number of people (in millions) living on earth, the last 500 years</p>
-        <p>{{ object_list }}</p>
+        <h1>team_classic_nonshooting</h1>
       </div>
 
 
@@ -24,38 +22,7 @@
         <div class='col-10'>
           
           <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
-            Graphs
-
-            
-
-
-            <h2>JavaScript Arrays</h2>
-            <p>The best way to loop through an array is using a standard for loop:</p>
-            <p id="demo1"></p>
-            <script>
-              var fruits, text, fLen, i;
-              fruits = ["Banana", "Orange", "Apple", "Mango"];
-              fLen = fruits.length;
-              text = "<ul>";
-              for (i = 0; i < fLen; i++) {
-                  text += "<li>" + fruits[i] + "</li>";
-              }
-              text += "</ul>";
-              document.getElementById("demo1").innerHTML = text;
-            </script>
-            
-            <h2>JavaScript Loops</h2>
-            <p id="demo2"></p>
-            <script>
-              var text = "";
-              var i;
-              for (i = 0; i < 5; i++) {
-                  text += "The number is " + i + "<br>";
-              }
-              document.getElementById("demo2").innerHTML = text;
-            </script>
-
-            
+            Graphs            
 
             <div class='row'>
               <div class='col'>
@@ -111,7 +78,7 @@
             <div class='row'>
               <div class='col-12'>
                 <table class="table table-sm table-hover table-dark">
-                  {% for object in team_classic_shooting %}
+                  {% for object in team_classic_nonshooting %}
 
                     {% if forloop.first %}
                     <thead>
@@ -119,19 +86,20 @@
                           <th scope="col">Team</th>
                           <th scope="col">Games</th>
                           
-                          <th scope="col">2FG Made</th>
-                          <th scope="col">2FG Missed</th>
-                          <th scope="col">2FG%</th>
+                          <th scope="col">Off Reb</th>
+                          <th scope="col">Def Reb</th>
+                          <th scope="col">Tot Reb</th>
 
-                          <th scope="col">3FG Made</th>
-                          <th scope="col">3FG Missed</th>
-                          <th scope="col">3FG%</th>
+                          <th scope="col">Ast</th>
+                          <th scope="col">Stl</th>
+                          <th scope="col">Blk</th>
 
-                          <th scope="col">FT Made</th>
-                          <th scope="col">FT Missed</th>
-                          <th scope="col">FT%</th>
+                          <th scope="col">Tov</th>
+                          <th scope="col">Fls</th>
+                          <th scope="col">Min</th>
+
+                          <th scope="col">Pts</th>
                           
-
                         </tr>
                       </thead>
                       {% endif %}
@@ -170,5 +138,5 @@
     
     
     
-    <script src="{% static 'teams/script4.js' %}"></script>
+    <script src="{% static 'teams/team_classic_nonshooting.js' %}"></script>
 {% endblock %}
