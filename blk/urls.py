@@ -17,9 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from .views import home_page
+from players.views import home_page_players
 
 urlpatterns = [
     url(r'^$', home_page, name='home'),
+    url(r'^blk/players/$', home_page_players, name='home_page_players'),
 	url(r'^blk/', include('teams.urls', namespace='blk')),
     # url(r'^teams/', team_page),
 	# url(r'^teams2/', team_list_view),
