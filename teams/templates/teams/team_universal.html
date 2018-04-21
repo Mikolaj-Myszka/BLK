@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+{% url 'blk:team_classic_shooting' as team_classic_shooting_url %}
+{% url 'blk:team_classic_nonshooting' as team_classic_nonshooting_url %}
+
+{% url 'blk:team_team_oreb_prtg' as team_team_oreb_prtg_url %}
+{% url 'blk:team_team_dreb_prtg' as team_team_dreb_prtg_url %}
+{% url 'blk:team_team_prtg' as team_team_prtg_url %}
+{% url 'blk:team_team_shot_div_0' as team_team_shot_div_0_url %}
+{% url 'blk:team_team_shot_div_8' as team_team_shot_div_8_url %}
+{% url 'blk:team_team_shot_div_16' as team_team_shot_div_16_url %}
+{% url 'blk:team_team_shot_div_3' as team_team_shot_div_3_url %}
+{% url 'blk:team_team_shot_adv' as team_team_shot_adv_url %}
+
+<div class='container-fluid'>
+      <div class="wrapper">
+        <h1>{{ page_title }}</h1>
+        <p>{{ page_subtitle }}</p>
+      </div>
+
+
+      
+      <div class='row'>
+        
+        <div class='col-2'>
+          <div class="alert alert-primary" role="alert" style='min-height: 800px;'>
+            {% if navbar_type == 0 %}
+              <a href="{{ team_classic_shooting_url }}">Shooting</a><br/>
+              <a href="{{ team_classic_nonshooting_url }}">Non-shooting</a>
+            {% else %}
+              <a href="{{ team_team_oreb_prtg_url }}">Off Rebounds</a><br/>
+              <a href="{{ team_team_dreb_prtg_url }}">Def Rebounds</a><br/>
+              <a href="{{ team_team_prtg_url }}">Percentages</a><br/>
+              <a href="{{ team_team_shot_div_0_url }}">Shot Division 0-7 ft</a>
+              <a href="{{ team_team_shot_div_8_url }}">Shot Division 8-15 ft</a>
+              <a href="{{ team_team_shot_div_16_url }}">Shot Division 16-3PT</a>
+              <a href="{{ team_team_shot_div_3_url }}">Shot Division 3PT</a>
+              <a href="{{ team_team_shot_adv_url }}">Shooting</a>
+            {% endif %}
+          </div>
+        </div>
+
+
+        <div class='col-10'>
+          
+          <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
+            (Graphs)
+
+            <div class='row'>
+            {% for canva in canvas %}
+              ({{ forloop.counter }})
+
+              <div class='col' style='width:400; height:300'>
+                <canvas id="myChart{{ canva }}" height="300"></canvas>
+              
+              {% if forloop.counter|divisibleby:3 %}
+                  </div>
+                </div>
+                <div class='row'><div class='col-12'><hr/></div>
+              {% else %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+
+
+          <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
+            (table)
+
+            <div class='row'>
+              <div class='col-12'>
+                
+
+                <table class="table table-sm table-hover table-dark">
+                  {% for object in table_cell_values %}
+
+                    {% if forloop.first %}
+                      <thead>
+                        <tr>
+
+                          {% for tcn in table_col_names %}
+                            <th scope="col">{{ tcn }}</th>
+                          {% endfor %}
+                          
+                        </tr>
+                      </thead>
+                    {% endif %}
+
+                    <tbody>
+                      <tr>
+                        {% for value in object.values %}
+                          <td>{{ value }}</td>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+
+                  {% endfor %}
+                </table>
+              
+
+
+              </div>
+              
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+      
+
+      </div>
+      
+      
+    
+    
+
+
+    </div>
+
+    
+    
+    
+    {% include 'base/graph_js.html' %}
+{% endblock %}

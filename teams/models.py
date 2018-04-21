@@ -34,6 +34,7 @@ class TeamClassic(models.Model):
 		return "Team: " + self.team + " " + str(self.id)
 
 
+
 class TeamTeamRebPct(models.Model):
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()
@@ -75,8 +76,77 @@ class TeamTeamRebPct(models.Model):
 
 
 
+class TeamTeamPct(models.Model):
+	team = models.CharField(max_length=10)
+	gp = models.IntegerField()
 
-"""
-No	Team	GP		2FGM	2FGMS	2P%	3FGM	3FGMS	3P%	
-FTM	FTMS	FT%	OR	DR	TR	AST	STL	BLK	TO	FLS	SEC	MIN	PTS	GS	TmREB	TmTO	TmFLS
-"""
+	ast_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	stl_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	blk_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	tov_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	fls_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	def __str__(self):
+		return "Team: " + self.team + " " + str(self.id)
+
+
+
+class TeamTeamShotDiv(models.Model):
+	team = models.CharField(max_length=10)
+	gp = models.IntegerField()
+
+	zero_fgm = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_fg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_prtg_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_prtg_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	zero_prtg_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	eight_fgm = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_fg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_prtg_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_prtg_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	eight_prtg_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	sixteen_fgm = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_fg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_prtg_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_prtg_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	sixteen_prtg_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	three_fgm = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_fg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_prtg_fga = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_prtg_ast = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	three_prtg_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	def __str__(self):
+		return "Team: " + self.team + " " + str(self.id)
+
+
+
+class TeamTeamShotAdv(models.Model):
+	team = models.CharField(max_length=10)
+	gp = models.IntegerField()
+
+	efg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	ts_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	usg_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	pps = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	avg_dist = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	def __str__(self):
+		return "Team: " + self.team + " " + str(self.id)

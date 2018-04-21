@@ -6,13 +6,19 @@ import django
 django.setup()
 from teams.models import TeamClassic
 from teams.models import TeamTeamRebPct
+from teams.models import TeamTeamPct
+from teams.models import TeamTeamShotDiv
+from teams.models import TeamTeamShotAdv
 
 import csv
 
 
 ##### 1 switches on, 0 off
 team_team_classic_pergame = 0
-team_team_reb_pctg_pergame = 1
+team_team_reb_pctg_pergame = 0
+team_team_pctg_pergame = 0
+team_team_shot_div_pergame = 0
+team_team_shot_adv_pergame = 1
 
 
 ###################
@@ -115,6 +121,7 @@ person, created = Person.objects.update_or_create(
 
 
 ###################
+i = 0
 if team_team_reb_pctg_pergame == 1:
 
     with open('TEAM-TEAM-REB_PCT-PERGAME.txt') as csvfile:
@@ -166,6 +173,134 @@ if team_team_reb_pctg_pergame == 1:
                 )
             print(p)
 
+
+
+
+###################
+i = 0
+if team_team_pctg_pergame == 1:
+
+    with open('TEAM-TEAM-PCT-PERGAME.txt') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            i = i + 1
+            print(i, row['Team'])
+
+            p = TeamTeamPct.objects.update_or_create(
+                team=row['Team'],
+                defaults={
+                    'gp': row['GP'],
+
+                    'ast_prtg': row['Ast%'],
+                    'stl_prtg': row['Stl%'],
+                    'blk_prtg': row['Blk%'],
+
+                    'tov_prtg': row['Tov%'],
+                    'fls_prtg': row['Fls%'],
+                    }
+                )
+            print(p)
+
+
+
+
+###################
+i = 0
+if team_team_shot_div_pergame == 1:
+
+    with open('TEAM-TEAM-SHOT_DIV-PERGAME.txt') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            i = i + 1
+            print(i, row['Team'])
+
+            p = TeamTeamShotDiv.objects.update_or_create(
+                team=row['Team'],
+                defaults={
+                    'gp': row['GP'],
+
+                    'zero_fgm': row['0FGM'],
+                    'zero_fga': row['0FGA'],
+                    'zero_pts': row['0PTS'],
+                    'zero_ast': row['0AST'],
+                    'zero_fg_prtg': row['0FG%'],
+                    'zero_prtg_fga': row['0%FGA'],
+                    'zero_prtg_ast': row['0%AST'],
+                    'zero_prtg_pts': row['0%PTS'],
+
+                    'eight_fgm': row['8FGM'],
+                    'eight_fga': row['8FGA'],
+                    'eight_pts': row['8PTS'],
+                    'eight_ast': row['8AST'],
+                    'eight_fg_prtg': row['8FG%'],
+                    'eight_prtg_fga': row['8%FGA'],
+                    'eight_prtg_ast': row['8%AST'],
+                    'eight_prtg_pts': row['8%PTS'],
+
+                    'sixteen_fgm': row['16FGM'],
+                    'sixteen_fga': row['16FGA'],
+                    'sixteen_pts': row['16PTS'],
+                    'sixteen_ast': row['16AST'],
+                    'sixteen_fg_prtg': row['16FG%'],
+                    'sixteen_prtg_fga': row['16%FGA'],
+                    'sixteen_prtg_ast': row['16%AST'],
+                    'sixteen_prtg_pts': row['16%PTS'],
+
+                    'three_fgm': row['3PTM'],
+                    'three_fga': row['3FGA'],
+                    'three_pts': row['3PTS'],
+                    'three_ast': row['3AST'],
+                    'three_fg_prtg': row['3PT%'],
+                    'three_prtg_fga': row['%3FGA'],
+                    'three_prtg_ast': row['%3AST'],
+                    'three_prtg_pts': row['%3PTS'],
+                    }
+                )
+            print(p)
+
+
+
+
+###################
+i = 0
+if team_team_shot_adv_pergame == 1:
+
+    with open('TEAM-TEAM-SHOT_ADV-PERGAME.txt') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            i = i + 1
+            print(i, row['Team'])
+
+            p = TeamTeamShotAdv.objects.update_or_create(
+                team=row['Team'],
+                defaults={
+                    'gp': row['GP'],
+
+                    'efg_prtg': row['eFG%'],
+                    'ts_prtg': row['TS%'],
+                    'usg_prtg': row['USG%'],
+
+                    'pps': row['PPS'],
+                    'avg_dist': row['AVG DIST'],
+                    }
+                )
+            print(p)
+
+
+"""
+efg_prtg
+ts_prtg
+usg_prtg
+pps
+avg_dist
+"""
+
+"""
+('eFG%', '54.47'), ('TS%', '58.07'), ('USG%', '100.0'), ('PPS', '108.95'), ('AVG DIST', '5.71')])
+"""
 
 
 
