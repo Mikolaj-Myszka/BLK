@@ -5,7 +5,7 @@
 {% block content %}
 <div class='container-fluid'>
       <div class="wrapper">
-        <h1>World population over time {{ number }}</h1>
+        <h1>{{ page_name }}</h1>
         <p>Number of people (in millions) living on earth, the last 500 years</p>
         <p>{{ object_list }}</p>
       </div>
@@ -56,7 +56,26 @@
             </script>
 
             
+            {{ canvas }}
 
+            <div class='row'>
+            {% for canva in canvas %}
+              {{ forloop.counter }}
+
+              <div class='col'>
+                <canvas id="myChart{{ canva }}" height="300"></canvas>
+              
+              {% if forloop.counter|divisibleby:3 %}
+                  </div>
+                </div>
+                <div class='row'><div class='col-12'><hr/></div>
+              {% else %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+
+            <!--
             <div class='row'>
               <div class='col'>
                 <canvas id="myChart1" height="300"></canvas>
@@ -68,7 +87,6 @@
               
               <div class='col'>
                 <canvas id="myChart3" height="300"></canvas>
-                <!-- <canvas id="myChart3" width="400" height="400"></canvas> -->
               </div>
             </div>
 
@@ -83,7 +101,6 @@
               
               <div class='col'>
                 <canvas id="myChart6" height="300"></canvas>
-                <!-- <canvas id="myChart3" width="400" height="400"></canvas> -->
               </div>
             </div>
 
@@ -98,11 +115,11 @@
               
               <div class='col'>
                 <canvas id="myChart9" height="300"></canvas>
-                <!-- <canvas id="myChart3" width="400" height="400"></canvas> -->
+                <canvas id="myChart3" width="400" height="400"></canvas>
               </div>
             </div>
 
-          </div>
+          </div>-->
 
 
           <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
@@ -110,6 +127,37 @@
 
             <div class='row'>
               <div class='col-12'>
+                
+
+                <table class="table table-sm table-hover table-dark">
+                  {% for object in team_classic_shooting %}
+
+                    {% if forloop.first %}
+                      <thead>
+                        <tr>
+
+                          {% for tcn in table_col_names %}
+                            <th scope="col">{{ tcn }}</th>
+                          {% endfor %}
+                          
+                        </tr>
+                      </thead>
+                    {% endif %}
+
+                    <tbody>
+                      <tr>
+                        {% for value in object.values %}
+                          <td>{{ value }}</td>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+
+                  {% endfor %}
+                </table>
+
+                {{ table_col_names }}
+
+
                 <table class="table table-sm table-hover table-dark">
                   {% for object in team_classic_shooting %}
 
@@ -146,6 +194,9 @@
 
                   {% endfor %}
                 </table>
+              
+
+
               </div>
               
             </div>

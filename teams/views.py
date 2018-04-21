@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from django.contrib.auth import get_user_model
 
-from .models import TeamClassic, TeamTeamRebPct
+from .models import TeamClassic, TeamTeamRebPct, TeamTeamPct, TeamTeamShotDiv, TeamTeamShotAdv
 
 
 
@@ -20,22 +20,30 @@ def home_page_blk(request):
 
 
 def team_classic_shooting(request):
-	#queryset = TeamClassic.objects.all()
-	team_classic_shooting = TeamClassic.objects.values(
-		'team', 'gp', 
-        'two_fgm', 'two_fgms', 'two_prtg', 
-		'three_fgm', 'three_fgms', 'three_prtg',
-		'ftm', 'ftms', 'ft_prtg'
-        )
-	context = {
-		#'object_list': queryset,
-		'team_classic_shooting': team_classic_shooting
-	}
-	return render(request, "teams/team_classic_shooting.html", context)
+    #canvas = "hello"
+    #queryset = TeamClassic.objects.all()
+    page_title = 'Shooting Statistics'
+    page_subtitle = 'Team / Classic'
+    navbar_type = 0
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamClassic.objects.values('team','gp','two_fgm','two_fgms','two_prtg','three_fgm','three_fgms','three_prtg','ftm','ftms','ft_prtg')
+    table_col_names = ['Team','Games','2FG Made','2FG Missed','2FG%','3FG Made','3FG Missed','3FG%','FT Made','FT Missed','FT%']
+    endpoint = '/blk/team-classic-shooting-api/'
+    print(endpoint)
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
 
 
 #User = get_user_model()
-class ChartData(APIView):
+class team_classic_shooting_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -77,7 +85,7 @@ class ChartData(APIView):
         lol2 = ['2FG Made','2FG Missed','2FG%','3FG Made','3FG Missed','3FG%','FT Made','FT Missed','FT%']
         reverse_gradient_flag = [0,1,0,0,1,0,0,1,0]
 
-
+        
         data2 = {
             'teams': teams,
             'two_fgm': two_fgm,
@@ -103,16 +111,23 @@ class ChartData(APIView):
 
 ### team_classing non shooting // do tabeli
 def team_classic_nonshooting(request):
-    team_classic_nonshooting = TeamClassic.objects.values(
-        'team', 'gp',
-        'off_reb', 'def_reb', 'tot_reb',
-        'ast', 'stl', 'blk',
-        'to', 'fls', 'mi','pts'
-        )
+    page_title = 'Non-Shooting Statistics'
+    page_subtitle = 'Team / Classic'
+    navbar_type = 0 # 0 classic
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamClassic.objects.values('team', 'gp','off_reb', 'def_reb', 'tot_reb','ast', 'stl', 'blk','to', 'fls', 'mi','pts')
+    table_col_names = ['Team','Games','Off Reb','Def Reb','Tot Reb','Ast','Stl','Blk','Tov','Fls','Min','Pts']
+    endpoint = '/blk/team-classic-nonshooting-api/'
     context = {
-        'team_classic_nonshooting': team_classic_nonshooting
-    }
-    return render(request, "teams/team_classic_nonshooting.html", context)
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
 
 ## do wykresow
 class team_classic_nonshooting_API(APIView):
@@ -138,9 +153,7 @@ class team_classic_nonshooting_API(APIView):
 
 
         lol = [off_reb, def_reb, tot_reb, ast, stl, blk, to, fls, pts]
-        lol2 = ['Off Reb','Def Reb','Tot Reb',
-                'Ast','Stl','Blk',
-                'Tov','Fouls','Points']
+        lol2 = ['Off Reb','Def Reb','Tot Reb','Ast','Stl','Blk','Tov','Fouls','Points']
         reverse_gradient_flag = [0,0,0, 0,0,0, 1,0,0]
 
 
@@ -160,21 +173,33 @@ class team_classic_nonshooting_API(APIView):
 
 
 
-### team_team_reb_prtg // do tabeli
-def team_team_reb_prtg(request):
-    team_team_reb_prtg = TeamTeamRebPct.objects.values(
-        'team', 'gp',
-        'ors_m', 'ors_a', 'ors_prtg',
-        'orb_m', 'orb_a', 'orb_prtg',
-        'orf_m', 'orf_a', 'orf_prtg'
-        )
+### team_team_oreb_prtg // do tabeli
+def team_team_oreb_prtg(request):
+    page_title = 'Offensive Rebounds Statistics'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','ors_m', 'ors_a', 'ors_prtg','orb_m', 'orb_a', 'orb_prtg','orf_m', 'orf_a', 'orf_prtg')
+    table_col_names = ['Team','Games',
+                'Made (Shots)','Available (Shots)','OR% (Shots)',
+                'Made (Blocks)','Available (Blocks)','OR% (Blocks)',
+                'Made (FT)','Available (FT)','OR% (FT)']
+    endpoint = '/blk/team-team-oreb-prtg-api/'
     context = {
-        'team_team_reb_prtg': team_team_reb_prtg
-    }
-    return render(request, "teams/team_team_reb_prtg.html", context)
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
 
 ## do wykresow
-class team_team_reb_prtg_API(APIView):
+class team_team_oreb_prtg_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -195,9 +220,10 @@ class team_team_reb_prtg_API(APIView):
 
 
         lol = [ors_m, ors_a, ors_prtg, orb_m, orb_a, orb_prtg, orf_m, orf_a, orf_prtg,]
-        lol2 = ['OR Made of Shots','OR Available of Shots','OR% Shots',
-                'OR Made of Blocks','OR Available of Blocks','OR% Blocks',
-                'OR Made of FT','OR Available of FT','OR%_FT']
+        lol2 = ['Made (Shots)','Available (Shots)','OR% (Shots)',
+                'Made (Blocks)','Available (Blocks)','OR% (Blocks)',
+                'Made (FT)','Available (FT)','OR% (FT)']
+                
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0,0]
 
 
@@ -211,18 +237,28 @@ class team_team_reb_prtg_API(APIView):
 
 
 
-### team_team_reb_prtg // do tabeli
+### team_team_dreb_prtg // do tabeli
 def team_team_dreb_prtg(request):
-    team_team_dreb_prtg = TeamTeamRebPct.objects.values(
-        'team', 'gp',
-        'drs_m', 'drs_a', 'drs_prtg',
-        'drb_m', 'drb_a', 'drb_prtg',
-        'drf_m', 'drf_a', 'drf_prtg'
-        )
+    page_title = 'Defensive Rebounds Statistics'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','drs_m', 'drs_a', 'drs_prtg','drb_m', 'drb_a', 'drb_prtg','drf_m', 'drf_a', 'drf_prtg')
+    table_col_names = ['Team','Games',
+                'Made (Shots)','Available (Shots)','DR% (Shots)',
+                'Made (Blocks)','Available (Blocks)','DR% (Blocks)',
+                'Made (FT)','Available (FT)','DR% (FT)']
+    endpoint = '/blk/team-team-dreb-prtg-api/'
     context = {
-        'team_team_dreb_prtg': team_team_dreb_prtg
-    }
-    return render(request, "teams/team_team_dreb_prtg.html", context)
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
 
 ## do wykresow
 class team_team_dreb_prtg_API(APIView):
@@ -246,9 +282,9 @@ class team_team_dreb_prtg_API(APIView):
 
 
         lol = [drs_m, drs_a, drs_prtg, drb_m, drb_a, drb_prtg, drf_m, drf_a, drf_prtg,]
-        lol2 = ['DR Made of Shots','DR Available of Shots','DR% Shots',
-                'DR Made of Blocks','DR Available of Blocks','DR% Blocks',
-                'DR Made of FT','DR Available of FT','DR%_FT']
+        lol2 = ['Made (Shots)','Available (Shots)','DR% (Shots)',
+                'Made (Blocks)','Available (Blocks)','DR% (Blocks)',
+                'Made (FT)','Available (FT)','DR% (FT)']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0,0]
 
 
@@ -259,6 +295,349 @@ class team_team_dreb_prtg_API(APIView):
             'reverse_gradient_flag': reverse_gradient_flag,
             }
         return Response(data2)
+
+
+
+
+### team_team_prtg // do tabeli
+def team_team_prtg(request):
+    page_title = 'Various Statistics'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6]
+    table_cell_values = TeamTeamPct.objects.values('team', 'gp','ast_prtg', 'stl_prtg', 'blk_prtg','tov_prtg', 'fls_prtg')
+    table_col_names = ['Team','Games',
+                'Ast%','Stl%','Blk%','Tov%','Fls%']
+    endpoint = '/blk/team-team-prtg-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+## do wykresow
+class team_team_prtg_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamPct.objects.values_list('team', flat=True)
+
+        ast_prtg = TeamTeamPct.objects.values_list('ast_prtg', flat=True)
+        stl_prtg = TeamTeamPct.objects.values_list('stl_prtg', flat=True)
+        blk_prtg = TeamTeamPct.objects.values_list('blk_prtg', flat=True)
+        
+        tov_prtg = TeamTeamPct.objects.values_list('tov_prtg', flat=True)
+        fls_prtg = TeamTeamPct.objects.values_list('fls_prtg', flat=True)
+
+
+        lol = [ast_prtg, stl_prtg, blk_prtg, tov_prtg, fls_prtg]
+        lol2 = ['Ast%','Stl%','Blk%','Tov%','Fls%']
+        reverse_gradient_flag = [0,0,0, 1,1,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
+
+
+
+
+### team_team_shot_div // do tabeli
+def team_team_shot_div_0(request):
+    page_title = 'Shot Division / 0-7 ft'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','zero_fgm', 'zero_fga', 'zero_pts','zero_ast', 
+        'zero_fg_prtg', 'zero_prtg_fga', 'zero_prtg_ast', 'zero_prtg_pts')
+    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    endpoint = '/blk/team-team-shot-div-0-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_team_shot_div_0_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamShotDiv.objects.values_list('team', flat=True)
+
+        zero_fgm = TeamTeamShotDiv.objects.values_list('zero_fgm', flat=True)
+        zero_fga = TeamTeamShotDiv.objects.values_list('zero_fga', flat=True)
+        zero_pts = TeamTeamShotDiv.objects.values_list('zero_pts', flat=True)
+        zero_ast = TeamTeamShotDiv.objects.values_list('zero_ast', flat=True)
+        zero_fg_prtg = TeamTeamShotDiv.objects.values_list('zero_fg_prtg', flat=True)
+        zero_prtg_fga = TeamTeamShotDiv.objects.values_list('zero_prtg_fga', flat=True)
+        zero_prtg_ast = TeamTeamShotDiv.objects.values_list('zero_prtg_ast', flat=True)
+        zero_prtg_pts = TeamTeamShotDiv.objects.values_list('zero_prtg_pts', flat=True)
+        
+
+
+        lol = [zero_fgm, zero_fga, zero_pts, zero_ast, zero_fg_prtg, zero_prtg_fga, zero_prtg_ast, zero_prtg_pts]
+        lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+        reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
+
+
+
+
+### team_team_shot_div // do tabeli
+def team_team_shot_div_8(request):
+    page_title = 'Shot Division / 8-15 ft'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','eight_fgm', 'eight_fga', 'eight_pts','eight_ast', 
+        'eight_fg_prtg', 'eight_prtg_fga', 'eight_prtg_ast', 'eight_prtg_pts')
+    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    endpoint = '/blk/team-team-shot-div-8-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_team_shot_div_8_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamShotDiv.objects.values_list('team', flat=True)
+
+        eight_fgm = TeamTeamShotDiv.objects.values_list('eight_fgm', flat=True)
+        eight_fga = TeamTeamShotDiv.objects.values_list('eight_fga', flat=True)
+        eight_pts = TeamTeamShotDiv.objects.values_list('eight_pts', flat=True)
+        eight_ast = TeamTeamShotDiv.objects.values_list('eight_ast', flat=True)
+        eight_fg_prtg = TeamTeamShotDiv.objects.values_list('eight_fg_prtg', flat=True)
+        eight_prtg_fga = TeamTeamShotDiv.objects.values_list('eight_prtg_fga', flat=True)
+        eight_prtg_ast = TeamTeamShotDiv.objects.values_list('eight_prtg_ast', flat=True)
+        eight_prtg_pts = TeamTeamShotDiv.objects.values_list('eight_prtg_pts', flat=True)
+        
+
+
+        lol = [eight_fgm, eight_fga, eight_pts, eight_ast, eight_fg_prtg, eight_prtg_fga, eight_prtg_ast, eight_prtg_pts]
+        lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+        reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
+
+
+
+
+
+### team_team_shot_div // do tabeli
+def team_team_shot_div_16(request):
+    page_title = 'Shot Division / 16 ft - 3PT'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','sixteen_fgm', 'sixteen_fga', 'sixteen_pts','sixteen_ast', 
+        'sixteen_fg_prtg', 'sixteen_prtg_fga', 'sixteen_prtg_ast', 'sixteen_prtg_pts')
+    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    endpoint = '/blk/team-team-shot-div-16-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_team_shot_div_16_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamShotDiv.objects.values_list('team', flat=True)
+
+        sixteen_fgm = TeamTeamShotDiv.objects.values_list('sixteen_fgm', flat=True)
+        sixteen_fga = TeamTeamShotDiv.objects.values_list('sixteen_fga', flat=True)
+        sixteen_pts = TeamTeamShotDiv.objects.values_list('sixteen_pts', flat=True)
+        sixteen_ast = TeamTeamShotDiv.objects.values_list('sixteen_ast', flat=True)
+        sixteen_fg_prtg = TeamTeamShotDiv.objects.values_list('sixteen_fg_prtg', flat=True)
+        sixteen_prtg_fga = TeamTeamShotDiv.objects.values_list('sixteen_prtg_fga', flat=True)
+        sixteen_prtg_ast = TeamTeamShotDiv.objects.values_list('sixteen_prtg_ast', flat=True)
+        sixteen_prtg_pts = TeamTeamShotDiv.objects.values_list('sixteen_prtg_pts', flat=True)
+        
+
+
+        lol = [sixteen_fgm, sixteen_fga, sixteen_pts, sixteen_ast, sixteen_fg_prtg, sixteen_prtg_fga, sixteen_prtg_ast, sixteen_prtg_pts]
+        lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+        reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
+
+
+
+
+
+### team_team_shot_div // do tabeli
+def team_team_shot_div_3(request):
+    page_title = 'Shot Division / 3PT'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','three_fgm', 'three_fga', 'three_pts','three_ast', 
+        'three_fg_prtg', 'three_prtg_fga', 'three_prtg_ast', 'three_prtg_pts')
+    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    endpoint = '/blk/team-team-shot-div-3-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_team_shot_div_3_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamShotDiv.objects.values_list('team', flat=True)
+
+        three_fgm = TeamTeamShotDiv.objects.values_list('three_fgm', flat=True)
+        three_fga = TeamTeamShotDiv.objects.values_list('three_fga', flat=True)
+        three_pts = TeamTeamShotDiv.objects.values_list('three_pts', flat=True)
+        three_ast = TeamTeamShotDiv.objects.values_list('three_ast', flat=True)
+        three_fg_prtg = TeamTeamShotDiv.objects.values_list('three_fg_prtg', flat=True)
+        three_prtg_fga = TeamTeamShotDiv.objects.values_list('three_prtg_fga', flat=True)
+        three_prtg_ast = TeamTeamShotDiv.objects.values_list('three_prtg_ast', flat=True)
+        three_prtg_pts = TeamTeamShotDiv.objects.values_list('three_prtg_pts', flat=True)
+        
+
+
+        lol = [three_fgm, three_fga, three_pts, three_ast, three_fg_prtg, three_prtg_fga, three_prtg_ast, three_prtg_pts]
+        lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+        reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
+
+
+
+
+
+### team_team_shot_div // do tabeli
+def team_team_shot_adv(request):
+    page_title = 'Shooting'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6]
+    table_cell_values = TeamTeamShotAdv.objects.values('team','gp','efg_prtg','ts_prtg','usg_prtg','pps','avg_dist')
+    table_col_names = ['Team','Games','eFG%','TS%','USG%','PP100S','AVG FT DIST']
+    endpoint = '/blk/team-team-shot-adv-api/'
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_team_shot_adv_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        teams = TeamTeamShotAdv.objects.values_list('team', flat=True)
+
+        efg_prtg = TeamTeamShotAdv.objects.values_list('efg_prtg', flat=True)
+        ts_prtg = TeamTeamShotAdv.objects.values_list('ts_prtg', flat=True)
+        usg_prtg = TeamTeamShotAdv.objects.values_list('usg_prtg', flat=True)
+        pps = TeamTeamShotAdv.objects.values_list('pps', flat=True)
+        avg_dist = TeamTeamShotAdv.objects.values_list('avg_dist', flat=True)
+        
+
+
+        lol = [efg_prtg,ts_prtg,usg_prtg,pps,avg_dist]
+        lol2 = ['eFG%','TS%','USG%','PP100S','AVG FT DIST']
+        reverse_gradient_flag = [0,0,0, 0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
+
 
 
 
