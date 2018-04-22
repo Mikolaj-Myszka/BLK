@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from django.contrib.auth import get_user_model
 
-from .models import TeamClassic, TeamTeamRebPct, TeamTeamPct, TeamTeamShotDiv, TeamTeamShotAdv
+from .models import TeamClassic, TeamTeamRebPct, TeamTeamPct, TeamTeamShotDiv, TeamTeamShotAdv, TeamSummary
 
 
 
@@ -639,6 +639,67 @@ class team_team_shot_adv_API(APIView):
         return Response(data2)
 
 
+
+
+
+### team_summary // do tabeli
+def team_summary(request):
+    page_title = 'Summary'
+    page_subtitle = 'Team / Advanced'
+    navbar_type = 1 # 0 classic / 1 Advanced
+    canvas = [1,2,3,4,5,6,7,8,9]
+    table_cell_values = TeamSummary.objects.order_by('team').values('team','gp','wins','at_home','win_prtg','team_pts','team_poss',
+        'off_rtg','oppo_pts','oppo_poss','def_rtg','net_rtg')
+    table_col_names = ['Team','Games','Wins','@Home','Win%','Team Pts','Team Poss','OffRtg','Oppo Pts','Oppo Poss','DefRtg','NetRtg']
+    endpoint = '/blk/team-summary-api/'
+    # print(table_cell_values)
+    # print(type(table_cell_values))
+    context = {
+        'page_title': page_title,
+        'page_subtitle': page_subtitle,
+        'navbar_type': navbar_type,
+        'canvas': canvas,
+        'table_cell_values': table_cell_values,
+        'table_col_names': table_col_names,
+        'endpoint2': endpoint
+        }
+    return render(request, "teams/team_universal.html", context)
+
+
+## do wykresow
+class team_summary_API(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        #TeamSummary = TeamSummary.objects.order_by('team')
+        teams = TeamSummary.objects.order_by('team').values_list('team', flat=True)
+
+        team_pts = TeamSummary.objects.order_by('team').values_list('team_pts', flat=True)
+        team_poss = TeamSummary.objects.order_by('team').values_list('team_poss', flat=True)
+        off_rtg = TeamSummary.objects.order_by('team').values_list('off_rtg', flat=True)
+
+        oppo_pts = TeamSummary.objects.order_by('team').values_list('oppo_pts', flat=True)
+        oppo_poss = TeamSummary.objects.order_by('team').values_list('oppo_poss', flat=True)
+        def_rtg = TeamSummary.objects.order_by('team').values_list('def_rtg', flat=True)
+
+        wins = TeamSummary.objects.order_by('team').values_list('wins', flat=True)
+        win_prtg = TeamSummary.objects.order_by('team').values_list('win_prtg', flat=True)
+        net_rtg = TeamSummary.objects.order_by('team').values_list('net_rtg', flat=True)
+        
+
+        lol = [team_pts,team_poss,off_rtg,oppo_pts,oppo_poss,def_rtg,wins,win_prtg,net_rtg]
+        lol2 = ['Team Pts','Team Poss','OffRtg','Oppo Pts','Oppo Poss','DefRtg','Wins','Win%','NetRtg']
+        reverse_gradient_flag = [0,0,0, 1,0,1, 0,0,0]
+
+
+        data2 = {
+            'teams': teams,
+            'lol': lol,
+            'lol2': lol2,
+            'reverse_gradient_flag': reverse_gradient_flag,
+            }
+        return Response(data2)
 
 
 

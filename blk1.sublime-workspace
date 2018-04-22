@@ -56,7 +56,7 @@
 			"file": "teams/models.py",
 			"settings":
 			{
-				"buffer_size": 7416,
+				"buffer_size": 8272,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -83,7 +83,7 @@
 			"file": "teams/admin.py",
 			"settings":
 			{
-				"buffer_size": 414,
+				"buffer_size": 480,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -92,7 +92,7 @@
 			"file": "teams/views.py",
 			"settings":
 			{
-				"buffer_size": 21746,
+				"buffer_size": 26603,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -101,7 +101,7 @@
 			"file": "teams/templates/teams/team_universal.html",
 			"settings":
 			{
-				"buffer_size": 3669,
+				"buffer_size": 3924,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -182,7 +182,7 @@
 			"file": "teams/urls.py",
 			"settings":
 			{
-				"buffer_size": 3150,
+				"buffer_size": 3391,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -245,7 +245,7 @@
 			"file": "blk/settings.py",
 			"settings":
 			{
-				"buffer_size": 3271,
+				"buffer_size": 3239,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -351,6 +351,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"objects",
+			"sixteen",
 			"eight",
 			"zero",
 			"data"
@@ -361,6 +363,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"objects.order_by('team')",
+			"three",
 			"eight",
 			"sixteen",
 			"eight",
@@ -377,7 +381,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -416,15 +420,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7416,
+						"buffer_size": 8272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6529,
-								6529
+								66,
+								808
 							]
 						],
 						"settings":
@@ -433,10 +437,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1546.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -466,7 +470,7 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -496,7 +500,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -505,15 +509,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 414,
+						"buffer_size": 480,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								412,
-								412
+								477,
+								477
 							]
 						],
 						"settings":
@@ -533,15 +537,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21746,
+						"buffer_size": 26603,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17742,
-								17742
+								24513,
+								24513
 							]
 						],
 						"settings":
@@ -550,11 +554,11 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 2.0,
-						"translation.y": 6981.0,
+						"translation.x": 0.0,
+						"translation.y": 9525.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -563,15 +567,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3669,
+						"buffer_size": 3924,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1610,
-								1610
+								1319,
+								1319
 							]
 						],
 						"settings":
@@ -581,10 +585,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -671,7 +675,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -821,7 +825,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -830,15 +834,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3150,
+						"buffer_size": 3391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1275,
-								1275
+								1463,
+								1463
 							]
 						],
 						"settings":
@@ -848,7 +852,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 225.0,
+						"translation.y": 121.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1038,15 +1042,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3271,
+						"buffer_size": 3239,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1133,
-								1133
+								0,
+								0
 							]
 						],
 						"settings":

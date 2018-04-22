@@ -1,5 +1,32 @@
 from django.db import models
 
+
+
+class TeamSummary(models.Model):
+	team = models.CharField(max_length=10)
+	gp = models.IntegerField()
+	
+	wins = models.IntegerField()
+	at_home = models.IntegerField()
+	win_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	team_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	team_poss = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	off_rtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	
+	oppo_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	oppo_poss = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+	def_rtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	net_rtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+
+	def __str__(self):
+		return "Team: " + self.team + " " + str(self.id)
+
+
+
+
+
 class TeamClassic(models.Model):
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()

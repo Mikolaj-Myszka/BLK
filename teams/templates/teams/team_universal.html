@@ -15,6 +15,7 @@
 {% url 'blk:team_team_shot_div_16' as team_team_shot_div_16_url %}
 {% url 'blk:team_team_shot_div_3' as team_team_shot_div_3_url %}
 {% url 'blk:team_team_shot_adv' as team_team_shot_adv_url %}
+{% url 'blk:team_summary' as team_summary_url %}
 
 <div class='container-fluid'>
       <div class="wrapper">
@@ -32,6 +33,7 @@
               <a href="{{ team_classic_shooting_url }}">Shooting</a><br/>
               <a href="{{ team_classic_nonshooting_url }}">Non-shooting</a>
             {% else %}
+              <a href="{{ team_summary_url }}">Summary</a><br/>
               <a href="{{ team_team_oreb_prtg_url }}">Off Rebounds</a><br/>
               <a href="{{ team_team_dreb_prtg_url }}">Def Rebounds</a><br/>
               <a href="{{ team_team_prtg_url }}">Percentages</a><br/>

@@ -9,6 +9,7 @@ from teams.models import TeamTeamRebPct
 from teams.models import TeamTeamPct
 from teams.models import TeamTeamShotDiv
 from teams.models import TeamTeamShotAdv
+from teams.models import TeamSummary
 
 import csv
 
@@ -18,7 +19,8 @@ team_team_classic_pergame = 0
 team_team_reb_pctg_pergame = 0
 team_team_pctg_pergame = 0
 team_team_shot_div_pergame = 0
-team_team_shot_adv_pergame = 1
+team_team_shot_adv_pergame = 0
+team_summary = 1
 
 
 ###################
@@ -288,6 +290,42 @@ if team_team_shot_adv_pergame == 1:
                     }
                 )
             print(p)
+
+
+
+###################
+i = 0
+if team_summary == 1:
+
+    with open('df.csv') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+
+            i = i + 1
+            print(i, row['team'])
+
+            p = TeamSummary.objects.update_or_create(
+                team=row['team'],
+                defaults={
+                    'gp': row['games'],
+
+                    'wins': row['wins'],
+                    'at_home': row['at home'],
+                    'win_prtg': row['percent'],
+
+                    'team_pts': row['team_pts'],
+                    'team_poss': row['team_poss'],
+                    'off_rtg': row['off_pts_poss'],
+
+                    'oppo_pts': row['oppo_pts'],
+                    'oppo_poss': row['oppo_poss'],
+                    'def_rtg': row['def_pts_poss'],
+
+                    'net_rtg': row['diff'],
+                    }
+                )
+            print(p)
+
 
 
 """

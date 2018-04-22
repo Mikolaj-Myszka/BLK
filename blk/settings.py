@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'sqk+c68oz)7zmvpchawu2y5-!p3y$gs9tk%m+rb225=qyy*_bf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['basket4life.pythonanywhere.com'] #'192.168.0.102']
+ALLOWED_HOSTS = [] #'192.168.0.102']
 
 
 # Application definition
