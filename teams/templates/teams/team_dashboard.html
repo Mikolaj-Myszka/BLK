@@ -55,23 +55,23 @@
         (Graphs)
 
         <div class='row'>
-        {% for canva in canvas %}
-          ({{ forloop.counter }})
-
-          <div class='col' style='width:400; height:300'>
-            <canvas id="myChart{{ canva }}" height="300"></canvas>
           
-          {% if forloop.counter|divisibleby:3 %}
-              </div>
-            </div>
-            <div class='row'><div class='col-12'><hr/></div>
-          {% else %}
-            </div>
-          {% endif %}
-        {% endfor %}
+          <div class='col-7'>
+            <canvas id="myChart1" height="300"></canvas>
+          </div>
+         
         </div>
+        
+        <div class='row'>
+          <div class='col'>
+            <hr/>
+          </div>
+        </div>
+      
+      </div>
 
 
+      
       <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
         (table)
 
@@ -131,6 +131,6 @@
 
 
 
-  {% include 'base/graph_js.html' %}
+  {% include 'base/dashboard_js.html' %}
 
 {% endblock %}

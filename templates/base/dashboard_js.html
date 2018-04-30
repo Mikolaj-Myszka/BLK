@@ -1,0 +1,123 @@
+
+<script>
+    $(document).ready(function(){
+    var endpoint = '{{ endpoint2 }}'
+    console.log(endpoint)
+    //var customersDjango = parseInt("{{ customers }}") *2
+    //console.log(customersDjango)
+    //var labels = []
+    var defaultData = []
+    var fLen, i
+    var cats = []
+    var reverse_gradient_flag = []
+    //var chartName = "myChart"
+    
+
+    $.ajax({
+      method: 'GET',
+      url: endpoint,
+      success: function(data){
+        labels = data.teams
+        rating = data.lol
+        fLen = labels.length
+
+        for (i = 0; i < fLen; i++) {
+            defaultData.push({
+                label: labels[i],
+                backgroundColor: "lightblue", //"rgba(155,221,50,0.2)",
+                pointRadius: 10,
+                borderColor: "black",
+                data: [{
+                    x: rating[2][i],
+                    y: rating[5][i],
+                    r: labels[i]
+                }]
+            })
+        }
+
+        cats = data.lol2
+
+        reverse_gradient_flag = data.reverse_gradient_flag
+        console.log(labels)
+        console.log(defaultData)
+        console.log('fLen', fLen)
+        console.log(rating[2])
+        //console.log(typeof data)
+
+
+
+        
+        //chart1
+        //chartName += i+1;
+        var ctx = document.getElementById("myChart1").getContext('2d');
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, 330);
+        if (reverse_gradient_flag[i] == 0) {
+            gradient.addColorStop(0, 'green');
+            gradient.addColorStop(1, 'red');
+        } else {
+            gradient.addColorStop(1, 'green');
+            gradient.addColorStop(0, 'red');
+        }
+        gradient.addColorStop(0.5, 'grey');
+        
+        
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            
+            data: {
+              //labels: labels,
+              datasets: defaultData
+            },
+
+            options: {
+              plugins: {
+                datalabels: {
+                    color: 'black',
+                    align: 'end',
+                    anchor: 'end',
+                    display: true,
+                    font: {
+                        weight: 'bold'
+                    },
+                    //formatter: Math.round
+                }
+              },
+              legend: {
+                text: "fdfskd",
+                display: true
+              },
+              title: {
+                display: true,
+                text: 'Predicted world population (millions) in 2050'
+              }, scales: {
+                yAxes: [{ 
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Defensive Rating"
+                  }
+                }],
+                xAxes: [{ 
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Offensive Rating"
+                  }
+                }]
+              }
+            }
+        
+        });
+        
+ 
+        //console.log(data)
+        //console.log(data.customers * 100)
+      },
+      error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+      }
+    })
+
+})
+
+</script>

@@ -27,7 +27,8 @@ from .views import (home_page_blk,
                     team_team_shot_div_16, team_team_shot_div_16_API,
                     team_team_shot_div_3, team_team_shot_div_3_API,
                     team_team_shot_adv, team_team_shot_adv_API,
-                    team_summary, team_summary_API
+                    team_summary, team_summary_API,
+                    team_dashboard, team_dashboard_API
                     ) #get_data
 
 urlpatterns = [
@@ -45,6 +46,7 @@ urlpatterns = [
     url(r'^team-team-shot-div-3/', team_team_shot_div_3, name='team_team_shot_div_3'),
     url(r'^team-team-shot-adv/', team_team_shot_adv, name='team_team_shot_adv'),
     url(r'^team-summary/', team_summary, name='team_summary'),
+    url(r'^team-dashboard/', team_dashboard, name='team_dashboard'),
 	#url(r'^api-data/', get_data),
 	url(r'^team-classic-shooting-api/', team_classic_shooting_API.as_view()),
     url(r'^team-classic-nonshooting-api/', team_classic_nonshooting_API.as_view()),
@@ -57,4 +59,5 @@ urlpatterns = [
     url(r'^team-team-shot-div-3-api/', team_team_shot_div_3_API.as_view()),
     url(r'^team-team-shot-adv-api/', team_team_shot_adv_API.as_view()),
     url(r'^team-summary-api/', team_summary_API.as_view()),
+    url(r'^team-dashboard-api/', team_dashboard_API.as_view()),
 ]
