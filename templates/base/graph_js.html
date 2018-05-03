@@ -22,9 +22,11 @@
         fLen = defaultData.length
         cats = data.lol2
         reverse_gradient_flag = data.reverse_gradient_flag
+        averages = data.averages
         console.log(labels)
         console.log(defaultData)
         console.log('fLen', fLen)
+        console.log('averages:', averages)
         //console.log(typeof data)
 
         for (i = 0; i < fLen; i++) {
@@ -47,13 +49,16 @@
                 type: 'bar',
                 data: {
                     labels: labels,
-                    datasets: [{
-                        label: "Europe",
+                    datasets: [
+                    /*
+                    {
+                        label: "Average",
                         type: "line",
                         borderColor: "#8e5ea2",
-                        //data: [20,20,20,20],
+                        data: averages[i],
                         fill: false
-                    },{
+                    },*/
+                    {
                         label: cats[i],
                         data: defaultData[i],
                         backgroundColor: gradient,
@@ -62,6 +67,20 @@
                     }]
                 },
                 options: {
+                    
+                    annotation: {
+                        annotations: [{
+                            drawTime: 'afterDraw',
+                            borderColor: 'grey',
+                            borderDash: [2, 2],
+                            borderWidth: 2,
+                            mode: 'horizontal',
+                            type: 'line',
+                            value: averages[i],
+                            scaleID: 'y-axis-0'
+                            }]
+                    },
+                    
                     scales: {
                         yAxes: [{
                             ticks: {

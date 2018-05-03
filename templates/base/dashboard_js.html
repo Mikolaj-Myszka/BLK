@@ -19,33 +19,50 @@
       success: function(data){
         labels = data.teams
         rating = data.lol
+        averages = data.averages
         fLen = labels.length
 
         for (i = 0; i < fLen; i++) {
             defaultData.push({
                 label: labels[i],
                 backgroundColor: "lightblue", //"rgba(155,221,50,0.2)",
-                pointRadius: 10,
+                //pointRadius: 10,
                 borderColor: "black",
                 data: [{
                     x: rating[2][i],
                     y: rating[5][i],
-                    r: labels[i]
+                    r: 10,
+                    label: labels[i]
                 }]
             })
         }
 
+        defaultData.push({
+          label: "Africa",
+          type: "line",
+          borderColor: "#3e95cd",
+          data: [100, 105],
+          fill: false,
+          borderWidth: 2,
+        })
+        
         cats = data.lol2
 
         reverse_gradient_flag = data.reverse_gradient_flag
-        console.log(labels)
-        console.log(defaultData)
+        console.log('labels:', labels)
+        console.log('defaultdata:', defaultData)
         console.log('fLen', fLen)
         console.log(rating[2])
+        console.log('averages:', averages)
         //console.log(typeof data)
 
+//https://stackoverflow.com/questions/42691873/draw-horizontal-line-on-chart-in-chart-js-on-v2?rq=1
 
+//9 Best JavaScript Charting Libraries – Hacker Noon:
+//https://www.youtube.com/watch?v=1OK4TJfCzdY
+//http://nvd3.org
 
+//https://stackoverflow.com/questions/7716331/calculating-arithmetic-mean-average-in-python
         
         //chart1
         //chartName += i+1;
@@ -63,14 +80,38 @@
         
         
         var scatterChart = new Chart(ctx, {
-            type: 'scatter',
+            type: 'bubble',
             
             data: {
-              //labels: labels,
+              labels: labels,
               datasets: defaultData
             },
 
             options: {
+
+              annotation: {
+                annotations: [{
+                    //drawTime: 'afterDraw',
+                    borderColor: 'grey',
+                    borderDash: [2, 2],
+                    borderWidth: 2,
+                    mode: 'vertical',
+                    type: 'line',
+                    value: averages[0],
+                    scaleID: 'x-axis-0'
+                      },
+                    {
+                    //drawTime: 'afterDraw',
+                    borderColor: 'grey',
+                    borderDash: [2, 2],
+                    borderWidth: 2,
+                    mode: 'horizontal',
+                    type: 'line',
+                    value: averages[1],
+                    scaleID: 'y-axis-0'
+                      }]
+              },
+
               plugins: {
                 datalabels: {
                     color: 'black',
@@ -80,7 +121,9 @@
                     font: {
                         weight: 'bold'
                     },
-                    //formatter: Math.round
+                    formatter: function(value, context) {
+                        return context.dataset.data[context.dataIndex].label;
+                        }
                 }
               },
               legend: {
@@ -90,7 +133,8 @@
               title: {
                 display: true,
                 text: 'Predicted world population (millions) in 2050'
-              }, scales: {
+              }, 
+              scales: {
                 yAxes: [{ 
                   scaleLabel: {
                     display: true,
@@ -103,8 +147,10 @@
                     labelString: "Offensive Rating"
                   }
                 }]
-              }
-            }
+              },
+
+              
+        }
         
         });
         

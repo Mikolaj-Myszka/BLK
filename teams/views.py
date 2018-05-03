@@ -693,11 +693,17 @@ class team_summary_API(APIView):
         reverse_gradient_flag = [0,0,0, 1,0,1, 0,0,0]
 
 
+        averages = [round(my_mean(team_pts),2), round(my_mean(team_poss),2), round(my_mean(off_rtg),2),
+                    round(my_mean(oppo_pts),2), round(my_mean(oppo_poss),2), round(my_mean(def_rtg),2),
+                    round(my_mean(wins),2), round(my_mean(win_prtg),2), round(my_mean(net_rtg),2)]
+
+
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -730,6 +736,10 @@ def team_dashboard(request):
 
 
 
+
+def my_mean(numbers):
+    return float(sum(numbers)) / max(len(numbers), 1)
+
 ## do wykresow
 class team_dashboard_API(APIView):
     authentication_classes = []
@@ -758,12 +768,15 @@ class team_dashboard_API(APIView):
         lol2 = ['Team Pts','Team Poss','OffRtg','Oppo Pts','Oppo Poss','DefRtg','Wins','Win%','NetRtg']
         reverse_gradient_flag = [0,0,0, 1,0,1, 0,0,0]
 
+        x_ave = round(my_mean(off_rtg),2)
+        y_ave = round(my_mean(def_rtg),2)
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': [x_ave, y_ave]
             }
         return Response(data2)
 

@@ -92,7 +92,7 @@
 			"file": "teams/views.py",
 			"settings":
 			{
-				"buffer_size": 29252,
+				"buffer_size": 29796,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -101,7 +101,7 @@
 			"file": "teams/templates/teams/team_dashboard.html",
 			"settings":
 			{
-				"buffer_size": 3521,
+				"buffer_size": 3524,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -110,7 +110,7 @@
 			"file": "templates/base/dashboard_js.html",
 			"settings":
 			{
-				"buffer_size": 3174,
+				"buffer_size": 4753,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -131,6 +131,15 @@
 				"buffer_size": 3690,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/base/graph_js.html",
+			"settings":
+			{
+				"buffer_size": 3232,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -263,7 +272,7 @@
 			"file": "blk/settings.py",
 			"settings":
 			{
-				"buffer_size": 3239,
+				"buffer_size": 3303,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -272,9 +281,17 @@
 			"file": "templates/base.html",
 			"settings":
 			{
-				"buffer_size": 1567,
+				"buffer_size": 1704,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "teams/static/teams/style.css",
+			"settings":
+			{
+				"buffer_size": 351,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -311,7 +328,7 @@
 	"expanded_folders":
 	[
 		"/C/Users/Mikołaj/Documents/Django Project/blk",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/teams",
+		"/C/Users/Mikołaj/Documents/Django Project/blk/blk",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base"
 	],
@@ -401,7 +418,7 @@
 	"groups":
 	[
 		{
-			"selected": 25,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -431,7 +448,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -460,7 +477,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -490,7 +507,7 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -520,7 +537,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -548,7 +565,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -557,15 +574,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 29252,
+						"buffer_size": 29796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								25979,
+								25979
 							]
 						],
 						"settings":
@@ -575,10 +592,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10852.0,
+						"translation.y": 10046.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -587,15 +604,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3521,
+						"buffer_size": 3524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2203,
-								2203
+								814,
+								814
 							]
 						],
 						"settings":
@@ -605,10 +622,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 589.0,
+						"translation.y": 1665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -617,15 +634,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3174,
+						"buffer_size": 4753,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								890,
-								890
+								2584,
+								3348
 							]
 						],
 						"settings":
@@ -635,10 +652,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 1305.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -654,8 +671,8 @@
 						"selection":
 						[
 							[
-								261,
-								261
+								1662,
+								1662
 							]
 						],
 						"settings":
@@ -665,10 +682,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -684,8 +701,8 @@
 						"selection":
 						[
 							[
-								3673,
-								3673
+								3656,
+								3664
 							]
 						],
 						"settings":
@@ -695,14 +712,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 820.0,
+						"translation.y": 1665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 10,
+					"file": "templates/base/graph_js.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2298,
+								2298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 750.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "players/views.py",
 					"semi_transient": false,
 					"settings":
@@ -726,11 +773,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "blk/views.py",
 					"semi_transient": false,
 					"settings":
@@ -755,11 +802,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "teams/templates/teams/team_classic_nonshooting.html",
 					"semi_transient": false,
 					"settings":
@@ -785,11 +832,11 @@
 						"translation.y": 1696.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "teams/static/teams/team_classic_nonshooting.js",
 					"semi_transient": false,
 					"settings":
@@ -815,11 +862,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "teams/templates/teams/team_team_dreb_prtg.html",
 					"semi_transient": false,
 					"settings":
@@ -845,11 +892,11 @@
 						"translation.y": 1665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "teams/static/teams/team_team_dreb_prtg.js",
 					"semi_transient": false,
 					"settings":
@@ -875,11 +922,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "teams/static/teams/team_team_reb_prtg.js",
 					"semi_transient": false,
 					"settings":
@@ -905,11 +952,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "teams/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -935,11 +982,11 @@
 						"translation.y": 481.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "blk/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -965,11 +1012,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "teams/templates/teams/team_classic_shooting.html",
 					"semi_transient": false,
 					"settings":
@@ -995,11 +1042,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "teams/templates/teams/list.html",
 					"semi_transient": false,
 					"settings":
@@ -1024,11 +1071,11 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": "teams/static/teams/script4.js",
 					"semi_transient": false,
 					"settings":
@@ -1054,11 +1101,11 @@
 						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 23,
 					"file": "teams/templates/teams/blk_home.html",
 					"semi_transient": false,
 					"settings":
@@ -1083,11 +1130,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 24,
 					"file": "templates/home_page.html",
 					"semi_transient": false,
 					"settings":
@@ -1099,8 +1146,8 @@
 						"selection":
 						[
 							[
-								397,
-								397
+								118,
+								118
 							]
 						],
 						"settings":
@@ -1113,24 +1160,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 25,
 					"file": "blk/settings.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3239,
+						"buffer_size": 3303,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3295,
+								3295
 							]
 						],
 						"settings":
@@ -1140,27 +1187,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 391.0,
+						"translation.y": 1395.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 26,
 					"file": "templates/base.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1567,
+						"buffer_size": 1704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								433,
-								433
+								231,
+								231
 							]
 						],
 						"settings":
@@ -1173,7 +1220,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "teams/static/teams/style.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
