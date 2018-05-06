@@ -85,7 +85,11 @@ class team_classic_shooting_API(APIView):
         lol2 = ['2FG Made','2FG Missed','2FG%','3FG Made','3FG Missed','3FG%','FT Made','FT Missed','FT%']
         reverse_gradient_flag = [0,1,0,0,1,0,0,1,0]
 
-        
+        averages = [round(my_mean(two_fgm),2), round(my_mean(two_fgms),2), round(my_mean(two_prtg),2),
+                    round(my_mean(three_fgm),2), round(my_mean(three_fgms),2), round(my_mean(three_prtg),2),
+                    round(my_mean(ftm),2), round(my_mean(ftms),2), round(my_mean(ft_prtg),2)]
+
+
         data2 = {
             'teams': teams,
             'two_fgm': two_fgm,
@@ -101,6 +105,7 @@ class team_classic_shooting_API(APIView):
             'lol2': lol2,
             'all': allz,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             # 'labels': labels,
             # 'default': default_items,
             }
@@ -156,12 +161,17 @@ class team_classic_nonshooting_API(APIView):
         lol2 = ['Off Reb','Def Reb','Tot Reb','Ast','Stl','Blk','Tov','Fouls','Points']
         reverse_gradient_flag = [0,0,0, 0,0,0, 1,0,0]
 
+        averages = [round(my_mean(off_reb),2), round(my_mean(def_reb),2), round(my_mean(tot_reb),2),
+                    round(my_mean(ast),2), round(my_mean(stl),2), round(my_mean(blk),2),
+                    round(my_mean(to),2), round(my_mean(fls),2), round(my_mean(pts),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -226,12 +236,17 @@ class team_team_oreb_prtg_API(APIView):
                 
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0,0]
 
+        averages = [round(my_mean(ors_m),2), round(my_mean(ors_a),2), round(my_mean(ors_prtg),2),
+                    round(my_mean(orb_m),2), round(my_mean(orb_a),2), round(my_mean(orb_prtg),2),
+                    round(my_mean(orf_m),2), round(my_mean(orf_a),2), round(my_mean(orf_prtg),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -287,12 +302,17 @@ class team_team_dreb_prtg_API(APIView):
                 'Made (FT)','Available (FT)','DR% (FT)']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0,0]
 
+        averages = [round(my_mean(drs_m),2), round(my_mean(drs_a),2), round(my_mean(drs_prtg),2),
+                    round(my_mean(drb_m),2), round(my_mean(drb_a),2), round(my_mean(drb_prtg),2),
+                    round(my_mean(drf_m),2), round(my_mean(drf_a),2), round(my_mean(drf_prtg),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -340,12 +360,15 @@ class team_team_prtg_API(APIView):
         lol2 = ['Ast%','Stl%','Blk%','Tov%','Fls%']
         reverse_gradient_flag = [0,0,0, 1,1,0]
 
+        averages = [round(my_mean(ast_prtg),2), round(my_mean(stl_prtg),2), round(my_mean(blk_prtg),2),
+                    round(my_mean(tov_prtg),2), round(my_mean(fls_prtg),2)]
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages
             }
         return Response(data2)
 
@@ -398,12 +421,17 @@ class team_team_shot_div_0_API(APIView):
         lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
 
+        averages = [round(my_mean(zero_fgm),2), round(my_mean(zero_fga),2), round(my_mean(zero_pts),2),
+                    round(my_mean(zero_ast),2), round(my_mean(zero_fg_prtg),2), round(my_mean(zero_prtg_fga),2),
+                    round(my_mean(zero_prtg_ast),2), round(my_mean(zero_prtg_pts),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -456,12 +484,17 @@ class team_team_shot_div_8_API(APIView):
         lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
 
+        averages = [round(my_mean(eight_fgm),2), round(my_mean(eight_fga),2), round(my_mean(eight_pts),2),
+                    round(my_mean(eight_ast),2), round(my_mean(eight_fg_prtg),2), round(my_mean(eight_prtg_fga),2),
+                    round(my_mean(eight_prtg_ast),2), round(my_mean(eight_prtg_pts),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -515,12 +548,17 @@ class team_team_shot_div_16_API(APIView):
         lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
 
+        averages = [round(my_mean(sixteen_fgm),2), round(my_mean(sixteen_fga),2), round(my_mean(sixteen_pts),2),
+                    round(my_mean(sixteen_ast),2), round(my_mean(sixteen_fg_prtg),2), round(my_mean(sixteen_prtg_fga),2),
+                    round(my_mean(sixteen_prtg_ast),2), round(my_mean(sixteen_prtg_pts),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -574,12 +612,17 @@ class team_team_shot_div_3_API(APIView):
         lol2 = ['FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
         reverse_gradient_flag = [0,0,0, 0,0,0, 0,0]
 
+        averages = [round(my_mean(three_fgm),2), round(my_mean(three_fga),2), round(my_mean(three_pts),2),
+                    round(my_mean(three_ast),2), round(my_mean(three_fg_prtg),2), round(my_mean(three_prtg_fga),2),
+                    round(my_mean(three_prtg_ast),2), round(my_mean(three_prtg_pts),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 
@@ -629,12 +672,16 @@ class team_team_shot_adv_API(APIView):
         lol2 = ['eFG%','TS%','USG%','PP100S','Avg Ft Dist']
         reverse_gradient_flag = [0,0,0, 0,0]
 
+        averages = [round(my_mean(efg_prtg),2), round(my_mean(ts_prtg),2), round(my_mean(usg_prtg),2),
+                    round(my_mean(pps),2), round(my_mean(avg_dist),2)]
+
 
         data2 = {
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
             'reverse_gradient_flag': reverse_gradient_flag,
+            'averages': averages,
             }
         return Response(data2)
 

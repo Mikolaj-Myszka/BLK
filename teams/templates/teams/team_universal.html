@@ -39,10 +39,10 @@
           <a href="{{ team_team_oreb_prtg_url }}">Off Rebounds</a><br/>
           <a href="{{ team_team_dreb_prtg_url }}">Def Rebounds</a><br/>
           <a href="{{ team_team_prtg_url }}">Percentages</a><br/>
-          <a href="{{ team_team_shot_div_0_url }}">Shot Division 0-7 ft</a>
-          <a href="{{ team_team_shot_div_8_url }}">Shot Division 8-15 ft</a>
-          <a href="{{ team_team_shot_div_16_url }}">Shot Division 16-3PT</a>
-          <a href="{{ team_team_shot_div_3_url }}">Shot Division 3PT</a>
+          <a href="{{ team_team_shot_div_0_url }}">Shot Division 0-7 ft</a><br/>
+          <a href="{{ team_team_shot_div_8_url }}">Shot Division 8-15 ft</a><br/>
+          <a href="{{ team_team_shot_div_16_url }}">Shot Division 16-3PT</a><br/>
+          <a href="{{ team_team_shot_div_3_url }}">Shot Division 3PT</a><br/>
           <a href="{{ team_team_shot_adv_url }}">Shooting</a>
         {% endif %}
       </div>
@@ -56,10 +56,12 @@
 
         <div class='row'>
         {% for canva in canvas %}
-          ({{ forloop.counter }})
+          {# ({{ forloop.counter }}) #}
 
-          <div class='col' style='width:400; height:300'>
-            <canvas id="myChart{{ canva }}" height="300"></canvas>
+          <div class='col'> <!-- style='width:400; height:300'>-->
+            <div> <!-- style="width: 100%; height: 300px;">-->
+              <canvas id="myChart{{ canva }}" height="300"></canvas>
+            </div>
           
           {% if forloop.counter|divisibleby:3 %}
               </div>

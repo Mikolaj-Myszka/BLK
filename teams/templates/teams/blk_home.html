@@ -1,15 +1,182 @@
 {% extends "base.html" %}
 
+
 {% block content %}
+
+{% url 'blk:team_classic_shooting' as team_classic_shooting_url %}
+{% url 'blk:team_classic_nonshooting' as team_classic_nonshooting_url %}
+
+{% url 'blk:team_team_oreb_prtg' as team_team_oreb_prtg_url %}
+{% url 'blk:team_team_dreb_prtg' as team_team_dreb_prtg_url %}
+{% url 'blk:team_team_prtg' as team_team_prtg_url %}
+{% url 'blk:team_team_shot_div_0' as team_team_shot_div_0_url %}
+{% url 'blk:team_team_shot_div_8' as team_team_shot_div_8_url %}
+{% url 'blk:team_team_shot_div_16' as team_team_shot_div_16_url %}
+{% url 'blk:team_team_shot_div_3' as team_team_shot_div_3_url %}
+{% url 'blk:team_team_shot_adv' as team_team_shot_adv_url %}
+{% url 'blk:team_summary' as team_summary_url %}
+{% url 'blk:team_dashboard' as team_dashboard_url %}
+
+
+
 	<div class='container'>
-		Snippets wizytówki
+
 		<div class='row'>
-			{% for obj in object_list %}
-				<div class='col'>
-				{% include 'products/snippets/card.html' with instance=obj %}
-				<!--<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a><br/>-->
-				</div>
-			{% endfor %}
+			<div class='col-12'>
+				<hr/>
+			</div>
 		</div>
+		
+		<div class='row'>
+			<div class='col'>
+				<h3>Team Classic Statistics</h3>
+			</div>
+		</div>
+
+		
+		<div class='row'>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shooting</h5>
+				    <p class="card-text">2FG Made | 2FG Missed | 2FG% | 3FG Made | 3FG Missed | 3FG% | FT Made | FT Missed | FT%</p>
+				    <a href="{{ team_classic_shooting_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Non-Shooting</h5>
+				    <p class="card-text">Off Reb | Def Reb | Tot Reb | Assists | Steals | Blocks | Turnover | Fouls | Minutes | Points</p>
+				    <a href="{{ team_classic_nonshooting_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div class='row'>
+			<div class='col-12'>
+				<hr/>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col'>
+				<h3>Team Advanced Statistics</h3>
+			</div>
+		</div>
+
+		<div class='row'>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Summary</h5>
+				    <p class="card-text">Wins | @Home | Win% | Team Pts | Team Poss | OffRtg | Oppo Pts | Oppo Poss | DefRtg | NetRtg</p>
+				    <a href="{{ team_summary_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Dashboard</h5>
+				    <p class="card-text">X-Y Scatter Plot | X = Offensive Rating | Y = Defensive Rating</p>
+				    <a href="{{ team_dashboard_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Offensive Rebounds</h5>
+				    <p class="card-text">Made (Shots) | Available (Shots) | OR% (Shots) | Made (Blocks) | Available (Blocks) | OR% (Blocks) | Made (FT) | Available (FT) | OR% (FT)</p>
+				    <a href="{{ team_team_oreb_prtg_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Defensive Rebounds</h5>
+				    <p class="card-text">Made (Shots) | Available (Shots) | DR% (Shots) | Made (Blocks) | Available (Blocks) | DR% (Blocks) | Made (FT) | Available (FT) | DR% (FT)</p>
+				    <a href="{{ team_team_dreb_prtg_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Various Percentages</h5>
+				    <p class="card-text">Assist% | Steal% | Block% | Turnover% | Foul%</p>
+				    <a href="{{ team_team_prtg_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shot Division 0-7 ft</h5>
+				    <p class="card-text">FGM | FGA | PTS | AST | FG% | %FGA | %AST | %PTS</p>
+				    <a href="{{ team_team_shot_div_0_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shot Division 8-15 ft</h5>
+				    <p class="card-text">FGM | FGA | PTS | AST | FG% | %FGA | %AST | %PTS</p>
+				    <a href="{{ team_team_shot_div_8_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shot Division 16-3PT</h5>
+				    <p class="card-text">FGM | FGA | PTS | AST | FG% | %FGA | %AST | %PTS</p>
+				    <a href="{{ team_team_shot_div_16_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shot Division 3PT</h5>
+				    <p class="card-text">FGM | FGA | PTS | AST | FG% | %FGA | %AST | %PTS</p>
+				    <a href="{{ team_team_shot_div_3_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+			<div class='col'>
+				<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title">Shooting</h5>
+				    <p class="card-text">effectiveFG% | TrueShooting% | UsageRate% | PointsPer100Shots | Shot Average Ft Distance</p>
+				    <a href="{{ team_team_shot_adv_url }}" class="btn btn-primary">View</a>
+				  </div>
+				</div>
+			</div>
+
+		
+
+		</div>
+	
 	</div>
+
 {% endblock %}
