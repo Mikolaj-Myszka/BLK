@@ -1,6 +1,9 @@
 {% url 'blk:blk_home' as home_url %}
+
 {% url 'blk:team_classic_shooting' as team_classic_shooting_url %}
 {% url 'blk:team_team_oreb_prtg' as team_team_oreb_prtg_url %}
+
+{% url 'blk_pl:player_classic_shooting' as player_classic_shooting_url %}
 
 
 
@@ -20,6 +23,9 @@
       </li>
       <li class="nav-item {% if request.path == team_team_oreb_prtg_url %}active{% endif %}">
         <a class="nav-link" href="{{ team_team_oreb_prtg_url }}">Team Advanced</a>
+      </li>
+      <li class="nav-item {% if request.path == player_classic_shooting_url %}active{% endif %}">
+        <a class="nav-link" href="{{ player_classic_shooting_url }}">Player Classic</a>
       </li>
       <!--
       {% if request.user.is_authenticated %}

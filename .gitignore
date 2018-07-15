@@ -2,3 +2,4 @@
 *.txt
 blk/settings.py
 *.csv
+*.sublime-workspace
