@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from django.contrib.auth import get_user_model
 
-from .models import PlayerClassic #, TeamTeamRebPct, TeamTeamPct, TeamTeamShotDiv, TeamTeamShotAdv, TeamSummary
+from .models import PlayerClassic, PlayerTeamRebPct #, TeamTeamPct, TeamTeamShotDiv, TeamTeamShotAdv, TeamSummary
 
 
 def player_classic_shooting(request):
@@ -164,21 +164,21 @@ class player_classic_nonshooting_API(APIView):
 
 
 
-"""
 
 
-### team_team_oreb_prtg // do tabeli
-def team_team_oreb_prtg(request):
+
+### player_team_oreb_prtg // do tabeli
+def player_team_oreb_prtg(request):
     page_title = 'Offensive Rebounds Statistics'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
-    table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','ors_m', 'ors_a', 'ors_prtg','orb_m', 'orb_a', 'orb_prtg','orf_m', 'orf_a', 'orf_prtg')
-    table_col_names = ['Team','Games',
+    table_cell_values = PlayerTeamRebPct.objects.values('player','team', 'gp','ors_m', 'ors_a', 'ors_prtg','orb_m', 'orb_a', 'orb_prtg','orf_m', 'orf_a', 'orf_prtg')
+    table_col_names = ['Player','Team','Games',
                 'Made (Shots)','Available (Shots)','OR% (Shots)',
                 'Made (Blocks)','Available (Blocks)','OR% (Blocks)',
                 'Made (FT)','Available (FT)','OR% (FT)']
-    endpoint = '/blk/team-team-oreb-prtg-api/'
+    endpoint = '/blk/player-team-oreb-prtg-api/'
     context = {
         'page_title': page_title,
         'page_subtitle': page_subtitle,
@@ -188,29 +188,30 @@ def team_team_oreb_prtg(request):
         'table_col_names': table_col_names,
         'endpoint2': endpoint
         }
-    return render(request, "teams/team_universal.html", context)
+    return render(request, "players/player_universal.html", context)
 
 
 
 ## do wykresow
-class team_team_oreb_prtg_API(APIView):
+class player_team_oreb_prtg_API(APIView):
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        teams = TeamTeamRebPct.objects.values_list('team', flat=True)
+        players = PlayerTeamRebPct.objects.values_list('player', flat=True)
+        teams = PlayerTeamRebPct.objects.values_list('team', flat=True)
 
-        ors_m = TeamTeamRebPct.objects.values_list('ors_m', flat=True)
-        ors_a = TeamTeamRebPct.objects.values_list('ors_a', flat=True)
-        ors_prtg = TeamTeamRebPct.objects.values_list('ors_prtg', flat=True)
+        ors_m = PlayerTeamRebPct.objects.values_list('ors_m', flat=True)
+        ors_a = PlayerTeamRebPct.objects.values_list('ors_a', flat=True)
+        ors_prtg = PlayerTeamRebPct.objects.values_list('ors_prtg', flat=True)
 
-        orb_m = TeamTeamRebPct.objects.values_list('orb_m', flat=True)
-        orb_a = TeamTeamRebPct.objects.values_list('orb_a', flat=True)
-        orb_prtg = TeamTeamRebPct.objects.values_list('orb_prtg', flat=True)
+        orb_m = PlayerTeamRebPct.objects.values_list('orb_m', flat=True)
+        orb_a = PlayerTeamRebPct.objects.values_list('orb_a', flat=True)
+        orb_prtg = PlayerTeamRebPct.objects.values_list('orb_prtg', flat=True)
 
-        orf_m = TeamTeamRebPct.objects.values_list('orf_m', flat=True)
-        orf_a = TeamTeamRebPct.objects.values_list('orf_a', flat=True)
-        orf_prtg = TeamTeamRebPct.objects.values_list('orf_prtg', flat=True)
+        orf_m = PlayerTeamRebPct.objects.values_list('orf_m', flat=True)
+        orf_a = PlayerTeamRebPct.objects.values_list('orf_a', flat=True)
+        orf_prtg = PlayerTeamRebPct.objects.values_list('orf_prtg', flat=True)
 
 
         lol = [ors_m, ors_a, ors_prtg, orb_m, orb_a, orb_prtg, orf_m, orf_a, orf_prtg,]
@@ -226,6 +227,7 @@ class team_team_oreb_prtg_API(APIView):
 
 
         data2 = {
+            'players': players,
             'teams': teams,
             'lol': lol,
             'lol2': lol2,
@@ -236,14 +238,14 @@ class team_team_oreb_prtg_API(APIView):
 
 
 
-### team_team_dreb_prtg // do tabeli
-def team_team_dreb_prtg(request):
+### player_team_dreb_prtg // do tabeli
+def player_team_dreb_prtg(request):
     page_title = 'Defensive Rebounds Statistics'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
-    table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','drs_m', 'drs_a', 'drs_prtg','drb_m', 'drb_a', 'drb_prtg','drf_m', 'drf_a', 'drf_prtg')
-    table_col_names = ['Team','Games',
+    table_cell_values = PlayerTeamRebPct.objects.values('team', 'gp','drs_m', 'drs_a', 'drs_prtg','drb_m', 'drb_a', 'drb_prtg','drf_m', 'drf_a', 'drf_prtg')
+    table_col_names = ['Player','Team','Games',
                 'Made (Shots)','Available (Shots)','DR% (Shots)',
                 'Made (Blocks)','Available (Blocks)','DR% (Blocks)',
                 'Made (FT)','Available (FT)','DR% (FT)']
@@ -260,7 +262,7 @@ def team_team_dreb_prtg(request):
     return render(request, "teams/team_universal.html", context)
 
 ## do wykresow
-class team_team_dreb_prtg_API(APIView):
+class player_team_dreb_prtg_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -303,14 +305,14 @@ class team_team_dreb_prtg_API(APIView):
 
 
 
-### team_team_prtg // do tabeli
-def team_team_prtg(request):
+### player_team_prtg // do tabeli
+def player_team_prtg(request):
     page_title = 'Various Statistics'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6]
-    table_cell_values = TeamTeamPct.objects.values('team', 'gp','ast_prtg', 'stl_prtg', 'blk_prtg','tov_prtg', 'fls_prtg')
-    table_col_names = ['Team','Games',
+    table_cell_values = PlayerTeamPct.objects.values('team', 'gp','ast_prtg', 'stl_prtg', 'blk_prtg','tov_prtg', 'fls_prtg')
+    table_col_names = ['Player','Team','Games',
                 'Ast%','Stl%','Blk%','Tov%','Fls%']
     endpoint = '/blk/team-team-prtg-api/'
     context = {
@@ -325,7 +327,7 @@ def team_team_prtg(request):
     return render(request, "teams/team_universal.html", context)
 
 ## do wykresow
-class team_team_prtg_API(APIView):
+class player_team_prtg_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -360,15 +362,15 @@ class team_team_prtg_API(APIView):
 
 
 
-### team_team_shot_div // do tabeli
-def team_team_shot_div_0(request):
+### player_team_shot_div // do tabeli
+def player_team_shot_div_0(request):
     page_title = 'Shot Division / 0-7 ft'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','zero_fgm', 'zero_fga', 'zero_pts','zero_ast', 
         'zero_fg_prtg', 'zero_prtg_fga', 'zero_prtg_ast', 'zero_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Player','Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-0-api/'
     context = {
         'page_title': page_title,
@@ -383,7 +385,7 @@ def team_team_shot_div_0(request):
 
 
 ## do wykresow
-class team_team_shot_div_0_API(APIView):
+class player_team_shot_div_0_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -423,15 +425,15 @@ class team_team_shot_div_0_API(APIView):
 
 
 
-### team_team_shot_div // do tabeli
-def team_team_shot_div_8(request):
+### player_team_shot_div // do tabeli
+def player_team_shot_div_8(request):
     page_title = 'Shot Division / 8-15 ft'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
-    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','eight_fgm', 'eight_fga', 'eight_pts','eight_ast', 
+    table_cell_values = PlayerTeamShotDiv.objects.values('team', 'gp','eight_fgm', 'eight_fga', 'eight_pts','eight_ast', 
         'eight_fg_prtg', 'eight_prtg_fga', 'eight_prtg_ast', 'eight_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Player','Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-8-api/'
     context = {
         'page_title': page_title,
@@ -446,7 +448,7 @@ def team_team_shot_div_8(request):
 
 
 ## do wykresow
-class team_team_shot_div_8_API(APIView):
+class player_team_shot_div_8_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -487,15 +489,15 @@ class team_team_shot_div_8_API(APIView):
 
 
 
-### team_team_shot_div // do tabeli
-def team_team_shot_div_16(request):
+### player_team_shot_div // do tabeli
+def player_team_shot_div_16(request):
     page_title = 'Shot Division / 16 ft - 3PT'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','sixteen_fgm', 'sixteen_fga', 'sixteen_pts','sixteen_ast', 
         'sixteen_fg_prtg', 'sixteen_prtg_fga', 'sixteen_prtg_ast', 'sixteen_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Player','Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-16-api/'
     context = {
         'page_title': page_title,
@@ -510,7 +512,7 @@ def team_team_shot_div_16(request):
 
 
 ## do wykresow
-class team_team_shot_div_16_API(APIView):
+class player_team_shot_div_16_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -551,15 +553,15 @@ class team_team_shot_div_16_API(APIView):
 
 
 
-### team_team_shot_div // do tabeli
-def team_team_shot_div_3(request):
+### player_team_shot_div // do tabeli
+def player_team_shot_div_3(request):
     page_title = 'Shot Division / 3PT'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
-    table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','three_fgm', 'three_fga', 'three_pts','three_ast', 
+    table_cell_values = PlayerTeamShotDiv.objects.values('team', 'gp','three_fgm', 'three_fga', 'three_pts','three_ast', 
         'three_fg_prtg', 'three_prtg_fga', 'three_prtg_ast', 'three_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Player','Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-3-api/'
     context = {
         'page_title': page_title,
@@ -574,7 +576,7 @@ def team_team_shot_div_3(request):
 
 
 ## do wykresow
-class team_team_shot_div_3_API(APIView):
+class player_team_shot_div_3_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -615,14 +617,14 @@ class team_team_shot_div_3_API(APIView):
 
 
 
-### team_team_shot_div // do tabeli
-def team_team_shot_adv(request):
+### player_team_shot_div // do tabeli
+def player_team_shot_adv(request):
     page_title = 'Shooting'
-    page_subtitle = 'Team / Advanced'
+    page_subtitle = 'Player / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6]
-    table_cell_values = TeamTeamShotAdv.objects.values('team','gp','efg_prtg','ts_prtg','usg_prtg','pps','avg_dist')
-    table_col_names = ['Team','Games','eFG%','TS%','USG%','PP100S','Avg Ft Dist']
+    table_cell_values = PlayerTeamShotAdv.objects.values('team','gp','efg_prtg','ts_prtg','usg_prtg','pps','avg_dist')
+    table_col_names = ['Player','Team','Games','eFG%','TS%','USG%','PP100S','Avg Ft Dist']
     endpoint = '/blk/team-team-shot-adv-api/'
     context = {
         'page_title': page_title,
@@ -637,7 +639,7 @@ def team_team_shot_adv(request):
 
 
 ## do wykresow
-class team_team_shot_adv_API(APIView):
+class player_team_shot_adv_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -672,9 +674,9 @@ class team_team_shot_adv_API(APIView):
 
 
 
-
-### team_summary // do tabeli
-def team_summary(request):
+"""
+### player_summary // do tabeli
+def player_summary(request):
     page_title = 'Summary'
     page_subtitle = 'Team / Advanced'
     navbar_type = 1 # 0 classic / 1 Advanced
@@ -698,7 +700,7 @@ def team_summary(request):
 
 
 ## do wykresow
-class team_summary_API(APIView):
+class player_summary_API(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -740,7 +742,7 @@ class team_summary_API(APIView):
 
 
 
-### team_summary // do tabeli
+### player_summary // do tabeli
 def team_dashboard(request):
     page_title = 'Dashboard'
     page_subtitle = 'Team / Advanced'
@@ -764,7 +766,6 @@ def team_dashboard(request):
         'endpoint2': endpoint
         }
     return render(request, "teams/team_dashboard.html", context)
-
 
 """
 

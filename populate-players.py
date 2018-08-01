@@ -5,28 +5,28 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 from players.models import PlayerClassic
+from players.models import PlayerTeamRebPct
+from players.models import PlayerTeamPct
+from players.models import PlayerTeamShotDiv
+from players.models import PlayerTeamShotAdv
 """
-from teams.models import TeamTeamRebPct
-from teams.models import TeamTeamPct
-from teams.models import TeamTeamShotDiv
-from teams.models import TeamTeamShotAdv
 from teams.models import TeamSummary
 """
 import csv
 
 
 ##### 1 switches on, 0 off
-players_team_classic_pergame = 1
-team_team_reb_pctg_pergame = 0
-team_team_pctg_pergame = 0
-team_team_shot_div_pergame = 0
-team_team_shot_adv_pergame = 0
-team_summary = 0
+player_team_classic_pergame = 0
+player_team_reb_pctg_pergame = 0
+player_team_pctg_pergame = 0
+player_team_shot_div_pergame = 0
+player_team_shot_adv_pergame = 1
+#player_summary = 0
 
 
 ###################
 i = 0
-if players_team_classic_pergame == 1:
+if player_team_classic_pergame == 1:
 
     with open('PLAYER-TEAM-CLASSIC-PERGAME.txt') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -80,18 +80,19 @@ if players_team_classic_pergame == 1:
 
 ###################
 i = 0
-if team_team_reb_pctg_pergame == 1:
+if player_team_reb_pctg_pergame == 1:
 
-    with open('TEAM-TEAM-REB_PCT-PERGAME.txt') as csvfile:
+    with open('PLAYER-TEAM-REB_PCT-PERGAME.txt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
 
             i = i + 1
-            print(i, row['Team'])
+            print(i, row['Player'])
 
-            p = TeamTeamRebPct.objects.update_or_create(
-                team=row['Team'],
+            p = PlayerTeamRebPct.objects.update_or_create(
+                player=row['Player'],
                 defaults={
+                    'team': row['Team'],
                     'gp': row['GP'],
 
                     'ors_m': row['ORS M'],
@@ -136,18 +137,19 @@ if team_team_reb_pctg_pergame == 1:
 
 ###################
 i = 0
-if team_team_pctg_pergame == 1:
+if player_team_pctg_pergame == 1:
 
-    with open('TEAM-TEAM-PCT-PERGAME.txt') as csvfile:
+    with open('PLAYER-TEAM-PCT-PERGAME.txt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
 
             i = i + 1
-            print(i, row['Team'])
+            print(i, row['Player'])
 
-            p = TeamTeamPct.objects.update_or_create(
-                team=row['Team'],
+            p = PlayerTeamPct.objects.update_or_create(
+                player=row['Player'],
                 defaults={
+                    'team': row['Team'],
                     'gp': row['GP'],
 
                     'ast_prtg': row['Ast%'],
@@ -165,18 +167,19 @@ if team_team_pctg_pergame == 1:
 
 ###################
 i = 0
-if team_team_shot_div_pergame == 1:
+if player_team_shot_div_pergame == 1:
 
-    with open('TEAM-TEAM-SHOT_DIV-PERGAME.txt') as csvfile:
+    with open('PLAYER-TEAM-SHOT_DIV-PERGAME.txt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
 
             i = i + 1
-            print(i, row['Team'])
+            print(i, row['Player'])
 
-            p = TeamTeamShotDiv.objects.update_or_create(
-                team=row['Team'],
+            p = PlayerTeamShotDiv.objects.update_or_create(
+                player=row['Player'],
                 defaults={
+                    'team': row['Team'],
                     'gp': row['GP'],
 
                     'zero_fgm': row['0FGM'],
@@ -223,18 +226,19 @@ if team_team_shot_div_pergame == 1:
 
 ###################
 i = 0
-if team_team_shot_adv_pergame == 1:
+if player_team_shot_adv_pergame == 1:
 
-    with open('TEAM-TEAM-SHOT_ADV-PERGAME.txt') as csvfile:
+    with open('PLAYER-TEAM-SHOT_ADV-PERGAME.txt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
 
             i = i + 1
-            print(i, row['Team'])
+            print(i, row['Players'])
 
-            p = TeamTeamShotAdv.objects.update_or_create(
-                team=row['Team'],
+            p = PlayerTeamShotAdv.objects.update_or_create(
+                player=row['Players'],
                 defaults={
+                    'team': row['Team'],
                     'gp': row['GP'],
 
                     'efg_prtg': row['eFG%'],
@@ -248,8 +252,8 @@ if team_team_shot_adv_pergame == 1:
             print(p)
 
 
-
-###################
+"""
+###################not corrected
 i = 0
 if team_summary == 1:
 
@@ -281,7 +285,7 @@ if team_summary == 1:
                     }
                 )
             print(p)
-
+"""
 
 
 

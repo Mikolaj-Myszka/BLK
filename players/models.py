@@ -37,8 +37,9 @@ class PlayerClassic(models.Model):
 		return "Player: " + self.player + " " + str(self.id)
 
 
-"""
-class TeamTeamRebPct(models.Model):
+
+class PlayerTeamRebPct(models.Model):
+	player = models.CharField(max_length=30)
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()
 
@@ -75,11 +76,12 @@ class TeamTeamRebPct(models.Model):
 	drt_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
 	def __str__(self):
-		return "Team: " + self.team + " " + str(self.id)
+		return "Player: " + self.player + " " + str(self.id)
 
 
 
-class TeamTeamPct(models.Model):
+class PlayerTeamPct(models.Model):
+	player = models.CharField(max_length=30)
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()
 
@@ -91,11 +93,12 @@ class TeamTeamPct(models.Model):
 	fls_prtg = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
 	def __str__(self):
-		return "Team: " + self.team + " " + str(self.id)
+		return "Player: " + self.player + " " + str(self.id)
 
 
 
-class TeamTeamShotDiv(models.Model):
+class PlayerTeamShotDiv(models.Model):
+	player = models.CharField(max_length=30)
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()
 
@@ -136,11 +139,12 @@ class TeamTeamShotDiv(models.Model):
 	three_prtg_pts = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
 	def __str__(self):
-		return "Team: " + self.team + " " + str(self.id)
+		return "Player: " + self.player + " " + str(self.id)
 
 
 
-class TeamTeamShotAdv(models.Model):
+class PlayerTeamShotAdv(models.Model):
+	player = models.CharField(max_length=30)
 	team = models.CharField(max_length=10)
 	gp = models.IntegerField()
 
@@ -152,6 +156,4 @@ class TeamTeamShotAdv(models.Model):
 	avg_dist = models.DecimalField(decimal_places=2, max_digits=10, null=True)
 
 	def __str__(self):
-		return "Team: " + self.team + " " + str(self.id)
-
-"""
+		return "Player: " + self.player + " " + str(self.id)

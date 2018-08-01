@@ -33,7 +33,9 @@ from .views import (home_page_blk,
                     ) #get_data
 """
 
-from .views import player_classic_shooting, player_classic_shooting_API, player_classic_nonshooting, player_classic_nonshooting_API
+from .views import (player_classic_shooting, player_classic_shooting_API,
+                    player_classic_nonshooting, player_classic_nonshooting_API,
+                    player_team_oreb_prtg, player_team_oreb_prtg_API)
 
 urlpatterns = [
     #url(r'^teams/', team_page),
@@ -41,7 +43,7 @@ urlpatterns = [
     #url(r'^$', home_page_blk, name='blk_home'),
 	url(r'^player-classic-shooting/', player_classic_shooting, name='player_classic_shooting'),
     url(r'^player-classic-nonshooting/', player_classic_nonshooting, name='player_classic_nonshooting'),
- #    url(r'^team-team-oreb-prtg/', team_team_oreb_prtg, name='team_team_oreb_prtg'),
+    url(r'^player-team-oreb-prtg/', player_team_oreb_prtg, name='player_team_oreb_prtg'),
  #    url(r'^team-team-dreb-prtg/', team_team_dreb_prtg, name='team_team_dreb_prtg'),
  #    url(r'^team-team-prtg/', team_team_prtg, name='team_team_prtg'),
  #    url(r'^team-team-shot-div-0/', team_team_shot_div_0, name='team_team_shot_div_0'),
@@ -54,7 +56,7 @@ urlpatterns = [
 	# #url(r'^api-data/', get_data),
     url(r'^player-classic-shooting-api/', player_classic_shooting_API.as_view()),
     url(r'^player-classic-nonshooting-api/', player_classic_nonshooting_API.as_view()),
- #    url(r'^team-team-oreb-prtg-api/', team_team_oreb_prtg_API.as_view()),
+    url(r'^player-team-oreb-prtg-api/', player_team_oreb_prtg_API.as_view()),
  #    url(r'^team-team-dreb-prtg-api/', team_team_dreb_prtg_API.as_view()),
  #    url(r'^team-team-prtg-api/', team_team_prtg_API.as_view()),
  #    url(r'^team-team-shot-div-0-api/', team_team_shot_div_0_API.as_view()),
