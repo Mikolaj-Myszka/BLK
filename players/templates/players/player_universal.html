@@ -7,16 +7,16 @@
 {% url 'blk_pl:player_classic_shooting' as player_classic_shooting_url %}
 {% url 'blk_pl:player_classic_nonshooting' as player_classic_nonshooting_url %}
 
-{% url 'blk:team_team_oreb_prtg' as team_team_oreb_prtg_url %}
-{% url 'blk:team_team_dreb_prtg' as team_team_dreb_prtg_url %}
-{% url 'blk:team_team_prtg' as team_team_prtg_url %}
-{% url 'blk:team_team_shot_div_0' as team_team_shot_div_0_url %}
-{% url 'blk:team_team_shot_div_8' as team_team_shot_div_8_url %}
-{% url 'blk:team_team_shot_div_16' as team_team_shot_div_16_url %}
-{% url 'blk:team_team_shot_div_3' as team_team_shot_div_3_url %}
-{% url 'blk:team_team_shot_adv' as team_team_shot_adv_url %}
-{% url 'blk:team_summary' as team_summary_url %}
-{% url 'blk:team_dashboard' as team_dashboard_url %}
+{% url 'blk_pl:player_team_oreb_prtg' as player_team_oreb_prtg_url %}
+{% url 'blk_pl:player_team_dreb_prtg' as player_team_dreb_prtg_url %}
+{% url 'blk_pl:player_team_prtg' as player_team_prtg_url %}
+{% url 'blk_pl:player_team_shot_div_0' as player_team_shot_div_0_url %}
+{% url 'blk_pl:player_team_shot_div_8' as player_team_shot_div_8_url %}
+{% url 'blk_pl:player_team_shot_div_16' as player_team_shot_div_16_url %}
+{% url 'blk_pl:player_team_shot_div_3' as player_team_shot_div_3_url %}
+{% url 'blk_pl:player_team_shot_adv' as player_team_shot_adv_url %}
+{% url 'blk_pl:team_summary' as team_summary_url %}
+{% url 'blk_pl:team_dashboard' as team_dashboard_url %}
 
 <div class='container-fluid'>
   <div class="wrapper">
@@ -34,16 +34,18 @@
           <a href="{{ player_classic_shooting_url }}">Shooting</a><br/>
           <a href="{{ player_classic_nonshooting_url }}">Non-shooting</a>
         {% else %}
+        <!--
           <a href="{{ team_summary_url }}">Summary</a><br/>
           <a href="{{ team_dashboard_url }}">Dashboard</a><br/>
-          <a href="{{ team_team_oreb_prtg_url }}">Off Rebounds</a><br/>
-          <a href="{{ team_team_dreb_prtg_url }}">Def Rebounds</a><br/>
-          <a href="{{ team_team_prtg_url }}">Percentages</a><br/>
-          <a href="{{ team_team_shot_div_0_url }}">Shot Division 0-7 ft</a><br/>
-          <a href="{{ team_team_shot_div_8_url }}">Shot Division 8-15 ft</a><br/>
-          <a href="{{ team_team_shot_div_16_url }}">Shot Division 16-3PT</a><br/>
-          <a href="{{ team_team_shot_div_3_url }}">Shot Division 3PT</a><br/>
-          <a href="{{ team_team_shot_adv_url }}">Shooting</a>
+        -->
+          <a href="{{ player_team_oreb_prtg_url }}">Off Rebounds</a><br/>
+          <a href="{{ player_team_dreb_prtg_url }}">Def Rebounds</a><br/>
+          <a href="{{ player_team_prtg_url }}">Percentages</a><br/>
+          <a href="{{ player_team_shot_div_0_url }}">Shot Division 0-7 ft</a><br/>
+          <a href="{{ player_team_shot_div_8_url }}">Shot Division 8-15 ft</a><br/>
+          <a href="{{ player_team_shot_div_16_url }}">Shot Division 16-3PT</a><br/>
+          <a href="{{ player_team_shot_div_3_url }}">Shot Division 3PT</a><br/>
+          <a href="{{ player_team_shot_adv_url }}">Shooting</a>
         {% endif %}
       </div>
     </div>

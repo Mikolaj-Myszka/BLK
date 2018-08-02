@@ -56,7 +56,7 @@
 			"file": "templates/base/navbar.html",
 			"settings":
 			{
-				"buffer_size": 3058,
+				"buffer_size": 3322,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -65,7 +65,7 @@
 			"file": "players/views.py",
 			"settings":
 			{
-				"buffer_size": 33006,
+				"buffer_size": 33995,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -92,7 +92,7 @@
 			"file": "players/templates/players/player_universal.html",
 			"settings":
 			{
-				"buffer_size": 3834,
+				"buffer_size": 3937,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -110,7 +110,7 @@
 			"file": "players/urls.py",
 			"settings":
 			{
-				"buffer_size": 3885,
+				"buffer_size": 3727,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -219,7 +219,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -233,6 +233,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"TeamTeam",
+			"team_team_",
+			"blk:",
+			"team-team-",
+			"team_team_",
+			"team_",
 			"TeamTeamRebPct",
 			"TeamClassic",
 			"sixteen",
@@ -252,6 +258,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"PlayerTeam",
+			"player_team_",
+			"blk_pl:",
+			"player-team-",
+			"team-player-",
+			"player_team_",
+			"player_",
 			"PlayerTeamRebPct",
 			"PlayerClassic",
 			"three",
@@ -314,15 +327,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3058,
+						"buffer_size": 3322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								183,
-								183
+								141,
+								164
 							]
 						],
 						"settings":
@@ -335,7 +348,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -344,15 +357,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33006,
+						"buffer_size": 33995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25021,
-								25021
+								26110,
+								26110
 							]
 						],
 						"settings":
@@ -362,7 +375,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9921.0,
+						"translation.y": 9721.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -394,7 +407,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -422,7 +435,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -431,15 +444,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3834,
+						"buffer_size": 3937,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1145,
-								1145
+								1492,
+								1492
 							]
 						],
 						"settings":
@@ -449,10 +462,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 298.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -468,8 +481,8 @@
 						"selection":
 						[
 							[
-								468,
-								468
+								71,
+								71
 							]
 						],
 						"settings":
@@ -482,7 +495,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -491,15 +504,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3885,
+						"buffer_size": 3727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2154,
-								2175
+								1983,
+								2004
 							]
 						],
 						"settings":
@@ -509,10 +522,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -542,7 +555,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -587,7 +600,7 @@
 	"project": "blk1.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
