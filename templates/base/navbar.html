@@ -27,9 +27,11 @@
       <li class="nav-item {% if request.path == player_classic_shooting_url %}active{% endif %}">
         <a class="nav-link" href="{{ player_classic_shooting_url }}">Player Classic</a>
       </li>
+      {% if request.user.is_authenticated %}
       <li class="nav-item {% if request.path == player_team_oreb_prtg_url %}active{% endif %}">
         <a class="nav-link" href="{{ player_team_oreb_prtg_url }}">Player Advanced</a>
       </li>
+      {% endif %}
       <!--
       {% if request.user.is_authenticated %}
 	      <li class="nav-item {% if request.path == login_url %}active{% endif %}">

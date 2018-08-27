@@ -47,7 +47,7 @@
 			"file": "templates/base.html",
 			"settings":
 			{
-				"buffer_size": 2187,
+				"buffer_size": 2246,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -56,7 +56,7 @@
 			"file": "templates/base/navbar.html",
 			"settings":
 			{
-				"buffer_size": 3322,
+				"buffer_size": 3385,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -65,7 +65,7 @@
 			"file": "players/views.py",
 			"settings":
 			{
-				"buffer_size": 33995,
+				"buffer_size": 33721,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -74,7 +74,7 @@
 			"file": "templates/home_page.html",
 			"settings":
 			{
-				"buffer_size": 1548,
+				"buffer_size": 1733,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -110,7 +110,7 @@
 			"file": "players/templates/players/player_universal.html",
 			"settings":
 			{
-				"buffer_size": 4708,
+				"buffer_size": 4027,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -119,7 +119,7 @@
 			"file": "teams/templates/teams/team_universal.html",
 			"settings":
 			{
-				"buffer_size": 3809,
+				"buffer_size": 3909,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -146,7 +146,33 @@
 			"file": "blk/urls.py",
 			"settings":
 			{
-				"buffer_size": 1267,
+				"buffer_size": 1335,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "teams/urls.py",
+			"settings":
+			{
+				"buffer_size": 3580,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "blk/views.py",
+			"settings":
+			{
+				"buffer_size": 1400,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "blk/forms.py",
+			"settings":
+			{
+				"buffer_size": 153,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -185,15 +211,12 @@
 	"expanded_folders":
 	[
 		"/C/Users/Mikołaj/Documents/Django Project/blk",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/static",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/static/css",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/teams",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/templates",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/templates/teams",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/templates"
+		"/C/Users/Mikołaj/Documents/Django Project/blk/blk",
+		"/C/Users/Mikołaj/Documents/Django Project/blk/teams"
 	],
 	"file_history":
 	[
+		"/C/Users/Mikołaj/Documents/Django Project/blk/blk/forms.py",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base/graph_js.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base/navbar.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/blk/settings.py",
@@ -321,7 +344,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 13,
 			"sheets":
 			[
 				{
@@ -330,15 +353,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2187,
+						"buffer_size": 2246,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2120,
-								2120
+								1369,
+								1369
 							]
 						],
 						"settings":
@@ -348,10 +371,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 225.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -360,15 +383,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3322,
+						"buffer_size": 3385,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								164
+								1863,
+								1874
 							]
 						],
 						"settings":
@@ -378,10 +401,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -390,15 +413,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33995,
+						"buffer_size": 33721,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								838,
-								838
+								25744,
+								25744
 							]
 						],
 						"settings":
@@ -408,10 +431,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 9990.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -420,15 +443,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1548,
+						"buffer_size": 1733,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								304,
-								304
+								1518,
+								1518
 							]
 						],
 						"settings":
@@ -438,10 +461,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -469,7 +492,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -498,7 +521,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -526,7 +549,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -535,15 +558,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4708,
+						"buffer_size": 4027,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3126,
-								3126
+								3594,
+								3594
 							]
 						],
 						"settings":
@@ -553,10 +576,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 904.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -565,15 +588,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3809,
+						"buffer_size": 3909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2971,
-								2926
+								3668,
+								3668
 							]
 						],
 						"settings":
@@ -583,10 +606,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 945.0,
+						"translation.y": 195.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -616,7 +639,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -646,7 +669,7 @@
 						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -655,15 +678,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1267,
+						"buffer_size": 1335,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1031,
-								1031
+								1307,
+								1307
 							]
 						],
 						"settings":
@@ -676,7 +699,94 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "teams/urls.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1674,
+								1682
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "blk/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1324,
+								1324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "blk/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]

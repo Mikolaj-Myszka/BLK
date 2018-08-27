@@ -30,8 +30,10 @@
   </head>
   
   <body>
+    {# if request.user.is_authenticated #}
     {% include 'base/navbar.html' with brand_name='basket4life' %}
     {% block content %}{% endblock %}
+    {# endif #}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

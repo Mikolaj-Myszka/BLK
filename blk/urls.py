@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from .views import home_page
+from .views import home_page, logout_view
 #from players.views import home_page_players
 
 urlpatterns = [
@@ -30,4 +30,5 @@ urlpatterns = [
 	# url(r'^api-data/', get_data),
 	# url(r'^api-rest-data/', ChartData.as_view()),
     url(r'^admin/', admin.site.urls),
+    url(r'^logout/', logout_view, name='user_logout'),
 ]

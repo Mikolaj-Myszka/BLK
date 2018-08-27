@@ -81,7 +81,7 @@
           <div class='col-12'>
             
 
-            <table class="table table-sm table-hover table-dark">
+            <table class="table table-sm table-hover table-dark" data-toggle="table" data-pagination="true" data-search="true">
               {% for object in table_cell_values %}
 
                 {% if forloop.first %}
@@ -89,22 +89,24 @@
                     <tr>
 
                       {% for tcn in table_col_names %}
-                        <th scope="col">{{ tcn }}</th>
+                        <th scope="col" data-sortable="true">{{ tcn }}</th>
                       {% endfor %}
                       
-                    </tr>
+                     </tr>
                   </thead>
+                <tbody>
                 {% endif %}
 
-                <tbody>
+
                   <tr>
                     {% for value in object.values %}
                       <td>{{ value }}</td>
                     {% endfor %}
                   </tr>
-                </tbody>
+                
 
               {% endfor %}
+              </tbody>
             </table>
           
 
