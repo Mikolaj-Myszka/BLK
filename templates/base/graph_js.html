@@ -1,5 +1,6 @@
 
 <script>
+
     $(document).ready(function(){
     var endpoint = '{{ endpoint2 }}'
     console.log(endpoint)
@@ -10,6 +11,7 @@
     var fLen, i
     var cats = []
     var reverse_gradient_flag = []
+    var chartArray = []
     //var chartName = "myChart"
     
 
@@ -26,8 +28,45 @@
         console.log(labels)
         console.log(defaultData)
         console.log('fLen', fLen)
+        console.log('cats', cats)
         console.log('averages:', averages)
         //console.log(typeof data)
+
+
+        //vue part start
+        var vm = new Vue({
+            el: '#vue-app',
+            delimiters: ['[[', ']]'],
+            data: {
+                text: 'Check it!',
+                data: defaultData,
+                averages: averages
+            },
+            methods: {
+                kokon: function() {
+                    //this.text = this.data;
+                    for (i=0; i < fLen; i++) {
+                        for (j=0; j < labels.length; j++) {
+                            this.data[i][j] = (this.data[i][j] - this.averages[i]) / this.averages[i];
+                        }
+                        console.log('myChart', chartArray[i])
+                        chartArray[i].data.datasets[0].data = this.data[i];
+                        chartArray[i].options.annotation.annotations[0].value = 0;
+                        //myChart.data.labels = x;
+                        chartArray[i].update();
+                    }
+                    
+                }
+            }
+        });
+        //vue part end
+
+        //console.log('myChart.data.datasets[0].data', myChart.data.datasets[0].data)
+        console.log('vm.data', vm.data)
+        console.log('vm.data[0]', vm.data[0])
+        console.log('is array', Array.isArray(vm.data[0]))
+        console.log('vm.data[0]', typeof(vm.data[0]), vm.data[0])
+        //console.log('vm.text', vm.text)
 
         for (i = 0; i < fLen; i++) {
             //chart1
@@ -60,9 +99,9 @@
                     },*/
                     {
                         label: cats[i],
-                        data: defaultData[i],
-                        backgroundColor: gradient,
-                        borderColor: gradient,
+                        data: defaultData[i], //vm.data[i], //
+                        backgroundColor: 'grey', //gradient
+                        borderColor: 'black', //gradient
                         borderWidth: 1
                     }]
                 },
@@ -90,6 +129,7 @@
                     }
                 }
             });
+            chartArray.push(myChart);
         }
         
 

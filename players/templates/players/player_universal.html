@@ -54,7 +54,7 @@
     <div class='col-10'>
       
       <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
-        (Graphs)
+        
 
         <div class='row'>
         {% for canva in canvas %}
@@ -77,13 +77,13 @@
 
 
       <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
-        (table)
+        
 
         <div class='row'>
           <div class='col-12'>
             
 
-            <table class="table table-sm table-hover table-dark" data-toggle="table" data-pagination="true" data-search="true">
+            <table class="table table-sm table-hover table-dark" data-toggle="table" data-pagination="true" data-search="true" data-page-size="20">
               {% for object in table_cell_values %}
 
                 {% if forloop.first %}

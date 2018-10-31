@@ -27,7 +27,7 @@ def team_classic_shooting(request):
     navbar_type = 0
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamClassic.objects.values('team','gp','two_fgm','two_fgms','two_prtg','three_fgm','three_fgms','three_prtg','ftm','ftms','ft_prtg')
-    table_col_names = ['Team','Games','2FG Made','2FG Missed','2FG%','3FG Made','3FG Missed','3FG%','FT Made','FT Missed','FT%']
+    table_col_names = ['Tm','G','2M','2Ms','2FG%','3M','3Ms','3FG%','FTM','FTMs','FT%']
     endpoint = '/blk/team-classic-shooting-api/'
     print(endpoint)
     context = {
@@ -121,7 +121,7 @@ def team_classic_nonshooting(request):
     navbar_type = 0 # 0 classic
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamClassic.objects.values('team', 'gp','off_reb', 'def_reb', 'tot_reb','ast', 'stl', 'blk','to', 'fls', 'mi','pts')
-    table_col_names = ['Team','Games','Off Reb','Def Reb','Tot Reb','Ast','Stl','Blk','Tov','Fls','Min','Pts']
+    table_col_names = ['Tm','G','OR','DR','TR','Ast','Stl','Blk','Tov','Fls','Min','Pts']
     endpoint = '/blk/team-classic-nonshooting-api/'
     context = {
         'page_title': page_title,
@@ -190,10 +190,10 @@ def team_team_oreb_prtg(request):
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','ors_m', 'ors_a', 'ors_prtg','orb_m', 'orb_a', 'orb_prtg','orf_m', 'orf_a', 'orf_prtg')
-    table_col_names = ['Team','Games',
-                'Made (Shots)','Available (Shots)','OR% (Shots)',
-                'Made (Blocks)','Available (Blocks)','OR% (Blocks)',
-                'Made (FT)','Available (FT)','OR% (FT)']
+    table_col_names = ['Tm','G',
+                'M','A','OR%(Shots)',
+                'M','A','OR%(Blocks)',
+                'M','A','OR%(FT)']
     endpoint = '/blk/team-team-oreb-prtg-api/'
     context = {
         'page_title': page_title,
@@ -259,10 +259,10 @@ def team_team_dreb_prtg(request):
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamRebPct.objects.values('team', 'gp','drs_m', 'drs_a', 'drs_prtg','drb_m', 'drb_a', 'drb_prtg','drf_m', 'drf_a', 'drf_prtg')
-    table_col_names = ['Team','Games',
-                'Made (Shots)','Available (Shots)','DR% (Shots)',
-                'Made (Blocks)','Available (Blocks)','DR% (Blocks)',
-                'Made (FT)','Available (FT)','DR% (FT)']
+    table_col_names = ['Tm','G',
+                'M','A','DR%(Shots)',
+                'M','A','DR%(Blocks)',
+                'M','A','DR%(FT)']
     endpoint = '/blk/team-team-dreb-prtg-api/'
     context = {
         'page_title': page_title,
@@ -384,7 +384,7 @@ def team_team_shot_div_0(request):
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','zero_fgm', 'zero_fga', 'zero_pts','zero_ast', 
         'zero_fg_prtg', 'zero_prtg_fga', 'zero_prtg_ast', 'zero_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Team','G','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-0-api/'
     context = {
         'page_title': page_title,
@@ -447,7 +447,7 @@ def team_team_shot_div_8(request):
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','eight_fgm', 'eight_fga', 'eight_pts','eight_ast', 
         'eight_fg_prtg', 'eight_prtg_fga', 'eight_prtg_ast', 'eight_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Team','G','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-8-api/'
     context = {
         'page_title': page_title,
@@ -511,7 +511,7 @@ def team_team_shot_div_16(request):
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','sixteen_fgm', 'sixteen_fga', 'sixteen_pts','sixteen_ast', 
         'sixteen_fg_prtg', 'sixteen_prtg_fga', 'sixteen_prtg_ast', 'sixteen_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Team','G','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-16-api/'
     context = {
         'page_title': page_title,
@@ -575,7 +575,7 @@ def team_team_shot_div_3(request):
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamTeamShotDiv.objects.values('team', 'gp','three_fgm', 'three_fga', 'three_pts','three_ast', 
         'three_fg_prtg', 'three_prtg_fga', 'three_prtg_ast', 'three_prtg_pts')
-    table_col_names = ['Team','Games','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
+    table_col_names = ['Team','G','FGM','FGA','PTS','AST','FG%','%FGA','%AST','%PTS']
     endpoint = '/blk/team-team-shot-div-3-api/'
     context = {
         'page_title': page_title,
@@ -638,7 +638,7 @@ def team_team_shot_adv(request):
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6]
     table_cell_values = TeamTeamShotAdv.objects.values('team','gp','efg_prtg','ts_prtg','usg_prtg','pps','avg_dist')
-    table_col_names = ['Team','Games','eFG%','TS%','USG%','PP100S','Avg Ft Dist']
+    table_col_names = ['Team','G','eFG%','TS%','USG%','PP100S','Avg Ft Dist']
     endpoint = '/blk/team-team-shot-adv-api/'
     context = {
         'page_title': page_title,
@@ -697,7 +697,7 @@ def team_summary(request):
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = TeamSummary.objects.order_by('team').values('team','gp','wins','at_home','win_prtg','team_pts','team_poss',
         'off_rtg','oppo_pts','oppo_poss','def_rtg','net_rtg')
-    table_col_names = ['Team','Games','Wins','@Home','Win%','Team Pts','Team Poss','OffRtg','Oppo Pts','Oppo Poss','DefRtg','NetRtg']
+    table_col_names = ['Tm','G','Wins','@H','Win%','TPts','TPoss','OffRtg','OPts','OPoss','DefRtg','NetRtg']
     endpoint = '/blk/team-summary-api/'
     # print(table_cell_values)
     # print(type(table_cell_values))
@@ -766,7 +766,7 @@ def team_dashboard(request):
     print('test:', test)
     table_cell_values = TeamSummary.objects.order_by('team').values('team','gp','wins','at_home','win_prtg','team_pts','team_poss',
         'off_rtg','oppo_pts','oppo_poss','def_rtg','net_rtg')
-    table_col_names = ['Team','Games','Wins','@Home','Win%','Team Pts','Team Poss','OffRtg','Oppo Pts','Oppo Poss','DefRtg','NetRtg']
+    table_col_names = ['Tm','G','Wins','@H','Win%','TPts','TPoss','OffRtg','OPts','OPoss','DefRtg','NetRtg']
     endpoint = '/blk/team-dashboard-api/'
     # print(table_cell_values)
     # print(type(table_cell_values))

@@ -245,7 +245,7 @@ def player_team_dreb_prtg(request):
     navbar_type = 1 # 0 classic / 1 Advanced
     canvas = [1,2,3,4,5,6,7,8,9]
     table_cell_values = PlayerTeamRebPct.objects.values('player','team', 'gp','drs_m', 'drs_a', 'drs_prtg','drb_m', 'drb_a', 'drb_prtg','drf_m', 'drf_a', 'drf_prtg')
-    table_col_names = ['Player','Team','Games',
+    table_col_names = ['Player','Tm','G',
                 'M','A','DR%(Shots)',
                 'M','A','DR%(Blocks)',
                 'M','A','DR%(FT)']

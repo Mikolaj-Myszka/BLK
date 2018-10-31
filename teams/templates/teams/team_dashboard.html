@@ -35,7 +35,7 @@
   <div class='row'>
     
     <div class='col-2'>
-      <div class="alert alert-primary" role="alert" style='min-height: 800px;'>
+      <div class="alert alert-light" role="alert" style='min-height: 800px;'>
         {% if navbar_type == 0 %}
           <a href="{{ team_classic_shooting_url }}">Shooting</a><br/>
           <a href="{{ team_classic_nonshooting_url }}">Non-shooting</a>
@@ -57,8 +57,7 @@
 
     <div class='col-10'>
       
-      <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
-        (Graphs)
+      <div class="alert alert-light" role="alert" style='min-height: 400px;'>
 
         <div class='row'>
           
@@ -80,14 +79,13 @@
 
 
       
-      <div class="alert alert-primary" role="alert" style='min-height: 400px;'>
-        (table)
+      <div class="alert alert-light" role="alert" style='min-height: 400px;'>
 
         <div class='row'>
           <div class='col-12'>
             
 
-            <table class="table table-sm table-hover table-dark">
+            <table class="table table-sm table-hover table-dark" data-toggle="table" data-pagination="true" data-search="true" data-page-size="20">
               {% for object in table_cell_values %}
 
                 {% if forloop.first %}
@@ -95,22 +93,22 @@
                     <tr>
 
                       {% for tcn in table_col_names %}
-                        <th scope="col">{{ tcn }}</th>
+                        <th scope="col" data-sortable="true">{{ tcn }}</th>
                       {% endfor %}
                       
-                    </tr>
+                     </tr>
                   </thead>
+                <tbody>
                 {% endif %}
 
-                <tbody>
                   <tr>
                     {% for value in object.values %}
                       <td>{{ value }}</td>
                     {% endfor %}
                   </tr>
-                </tbody>
-
+                
               {% endfor %}
+              </tbody>
             </table>
           
 
