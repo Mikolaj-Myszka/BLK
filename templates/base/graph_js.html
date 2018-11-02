@@ -47,7 +47,10 @@
                     //this.text = this.data;
                     for (i=0; i < fLen; i++) {
                         for (j=0; j < labels.length; j++) {
-                            this.data[i][j] = (this.data[i][j] - this.averages[i]) / this.averages[i];
+                             // counting above/below average
+                            this.data[i][j] = ((this.data[i][j] - this.averages[i]) / this.averages[i])*100;
+                            // counting to 2 decimal places
+                            this.data[i][j] = Math.round(this.data[i][j]*100)/100;
                         }
                         console.log('myChart', chartArray[i])
                         chartArray[i].data.datasets[0].data = this.data[i];

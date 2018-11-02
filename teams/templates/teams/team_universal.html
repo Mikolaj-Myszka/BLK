@@ -54,14 +54,18 @@
       <div class="alert alert-light" role="alert" style='min-height: 400px;' id="vue-app">
 
         <div class='row'>
+          <div class='col'>
+            <button v-on:click="kokon" class='btn btn-primary' style="float: right;">Switch to %</button>
+          </div>
+        </div>
+
+        <div class='row'>
         {% for canva in canvas %}
           {# ({{ forloop.counter }}) #}
 
           <div class='col'> <!-- style='width:400; height:300'>-->
             <div> <!-- style="width: 100%; height: 300px;">-->
-              <button v-on:click="kokon" style="float: right;">Some text</button>
               <canvas id="myChart{{ canva }}" height="300"></canvas>
-              [[ text ]]
             </div>
             {% if forloop.counter|divisibleby:3 %}
               </div>
