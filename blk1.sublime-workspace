@@ -44,6 +44,42 @@
 	"buffers":
 	[
 		{
+			"file": "players/templates/players/player_universal.html",
+			"settings":
+			{
+				"buffer_size": 4345,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "teams/templates/teams/team_universal.html",
+			"settings":
+			{
+				"buffer_size": 4063,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/base/player_graph_js.html",
+			"settings":
+			{
+				"buffer_size": 5143,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/base/graph_js.html",
+			"settings":
+			{
+				"buffer_size": 4945,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "templates/base.html",
 			"settings":
 			{
@@ -56,7 +92,7 @@
 			"file": "templates/base/navbar.html",
 			"settings":
 			{
-				"buffer_size": 3650,
+				"buffer_size": 3661,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -65,7 +101,7 @@
 			"file": "templates/home_page.html",
 			"settings":
 			{
-				"buffer_size": 1733,
+				"buffer_size": 1742,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -74,63 +110,9 @@
 			"file": "teams/templates/teams/blk_home.html",
 			"settings":
 			{
-				"buffer_size": 5769,
+				"buffer_size": 5793,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "static/css/main.css",
-			"settings":
-			{
-				"buffer_size": 25,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "players/models.py",
-			"settings":
-			{
-				"buffer_size": 7686,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "players/admin.py",
-			"settings":
-			{
-				"buffer_size": 512,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "players/templates/players/player_universal.html",
-			"settings":
-			{
-				"buffer_size": 4032,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/base/graph_js.html",
-			"settings":
-			{
-				"buffer_size": 4735,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "teams/templates/teams/team_universal.html",
-			"settings":
-			{
-				"buffer_size": 3977,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -165,15 +147,6 @@
 			"settings":
 			{
 				"buffer_size": 33715,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "templates/base/player_graph_js.html",
-			"settings":
-			{
-				"buffer_size": 3444,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -248,11 +221,14 @@
 	"expanded_folders":
 	[
 		"/C/Users/Mikołaj/Documents/Django Project/blk",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/blk",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/teams"
+		"/C/Users/Mikołaj/Documents/Django Project/blk/templates",
+		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base"
 	],
 	"file_history":
 	[
+		"/C/Users/Mikołaj/Documents/Django Project/blk/players/admin.py",
+		"/C/Users/Mikołaj/Documents/Django Project/blk/players/models.py",
+		"/C/Users/Mikołaj/Documents/Django Project/blk/static/css/main.css",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/blk/forms.py",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base/graph_js.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base/navbar.html",
@@ -271,9 +247,7 @@
 		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/static/teams/universal.js",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/templates/teams/team_classic_nonshooting.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/blk/views.py",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/players/models.py",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/players/views.py",
-		"/C/Users/Mikołaj/Documents/Django Project/blk/static/css/main.css",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/templates/teams/team_universal.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/teams/templates/teams/graph_js.html",
 		"/C/Users/Mikołaj/Documents/Django Project/blk/templates/base/dashboard_js.html",
@@ -311,7 +285,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -383,11 +357,131 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "players/templates/players/player_universal.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3471,
+								3470
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 945.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "teams/templates/teams/team_universal.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3196,
+								3196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 991.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/base/player_graph_js.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4897,
+								4897
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/base/graph_js.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4674,
+								4699
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 375.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "templates/base.html",
 					"semi_transient": false,
 					"settings":
@@ -410,27 +504,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 5,
 					"file": "templates/base/navbar.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3650,
+						"buffer_size": 3661,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1838,
-								1838
+								2422,
+								2422
 							]
 						],
 						"settings":
@@ -440,27 +534,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 630.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 6,
 					"file": "templates/home_page.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1733,
+						"buffer_size": 1742,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1518,
-								1518
+								1462,
+								1462
 							]
 						],
 						"settings":
@@ -468,63 +562,6 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 225.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "teams/templates/teams/blk_home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5769,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3223,
-								3223
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "static/css/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 25,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -534,154 +571,36 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "players/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7686,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7664,
-								7664
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "players/admin.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 512,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								470,
-								470
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
 					"buffer": 7,
-					"file": "players/templates/players/player_universal.html",
+					"file": "teams/templates/teams/blk_home.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4032,
+						"buffer_size": 5793,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3159,
-								3159
+								794,
+								794
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 150.0,
+						"translation.y": 945.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "templates/base/graph_js.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1454,
-								1454
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 495.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "teams/templates/teams/team_universal.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3977,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2557,
-								2557
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 737.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
 					"file": "teams/templates/teams/team_dashboard.html",
 					"semi_transient": false,
 					"settings":
@@ -704,14 +623,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1170.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 9,
 					"file": "templates/base/dashboard_js.html",
 					"semi_transient": false,
 					"settings":
@@ -734,14 +653,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 225.0,
+						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 10,
 					"file": "teams/views.py",
 					"semi_transient": false,
 					"settings":
@@ -771,7 +690,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 11,
 					"file": "players/views.py",
 					"semi_transient": false,
 					"settings":
@@ -797,41 +716,11 @@
 						"translation.y": 3368.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "templates/base/player_graph_js.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3444,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								393,
-								407
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
+					"buffer": 12,
 					"file": "players/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -857,11 +746,11 @@
 						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 13,
 					"file": "blk/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -887,11 +776,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 14,
 					"file": "blk/views.py",
 					"semi_transient": false,
 					"settings":
@@ -916,11 +805,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 15,
 					"file": "blk/forms.py",
 					"semi_transient": false,
 					"settings":
@@ -944,7 +833,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
